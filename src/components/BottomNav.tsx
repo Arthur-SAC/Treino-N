@@ -3,14 +3,12 @@ import { HomeIcon } from "../icons/HomeIcon";
 import { DumbbellIcon } from "../icons/DumbbellIcon";
 import { RulerIcon } from "../icons/RulerIcon";
 import { HeartIcon } from "../icons/HeartIcon";
-import { RoseIcon } from "../icons/RoseIcon";
 
 const items = [
   { to: "/", label: "Hoje", Icon: HomeIcon, end: true },
-  { to: "/treino", label: "Treino", Icon: DumbbellIcon },
-  { to: "/corpo", label: "Corpo", Icon: RulerIcon },
-  { to: "/beleza", label: "Beleza", Icon: HeartIcon },
-  { to: "/trilha", label: "Trilha", Icon: RoseIcon },
+  { to: "/treino", label: "Treinos", Icon: DumbbellIcon, end: false },
+  { to: "/treino/progressao", label: "Progresso", Icon: RulerIcon, end: true },
+  { to: "/configuracoes", label: "Ajustes", Icon: HeartIcon, end: false },
 ];
 
 export function BottomNav() {
