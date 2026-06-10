@@ -9,16 +9,16 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["icons/*.svg"],
       manifest: {
-        name: "Trein-Final",
-        short_name: "Trein-Final",
-        description: "App pessoal de transição",
+        name: "Treino da Natália",
+        short_name: "Treino N",
+        description: "Rotina de treino — força, cardio e mobilidade",
         lang: "pt-BR",
-        theme_color: "#1a0a0e",
-        background_color: "#1a0a0e",
+        theme_color: "#1e1b4b",
+        background_color: "#1e1b4b",
         display: "standalone",
         orientation: "portrait",
-        scope: "/Treino-TF/",
-        start_url: "/Treino-TF/",
+        scope: "/Treino-N/",
+        start_url: "/Treino-N/",
         icons: [
           { src: "icons/icon-192.svg", sizes: "192x192", type: "image/svg+xml" },
           { src: "icons/icon-512.svg", sizes: "512x512", type: "image/svg+xml" },
@@ -26,7 +26,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        navigateFallback: "/Treino-TF/index.html",
+        navigateFallback: "/Treino-N/index.html",
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.destination === "document",
@@ -41,7 +41,7 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/Treino-TF/",
+  base: "/Treino-N/",
   test: {
     globals: true,
     environment: "happy-dom",
