@@ -1,6 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { Link, useParams } from "react-router-dom";
 import { db } from "../../lib/db";
+import { ExerciseMediaBlock } from "../../components/ExerciseMediaBlock";
 
 export function ExerciseDetail() {
   const { id } = useParams<{ id: string }>();
@@ -24,18 +25,7 @@ export function ExerciseDetail() {
         {ex.category} · {ex.difficulty}
       </p>
 
-      {ex.gifPath && (
-        <img
-          src={ex.gifPath}
-          alt={`Demonstração: ${ex.name}`}
-          className="w-full rounded-card mb-3"
-          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-        />
-      )}
-      {ex.videoUrl && (
-        <a href={ex.videoUrl} target="_blank" rel="noreferrer"
-           className="inline-block mb-3 text-nude underline">▶ Ver vídeo do exercício</a>
-      )}
+      <ExerciseMediaBlock name={ex.name} gifPath={ex.gifPath} videoUrl={ex.videoUrl} />
 
       <div className="card mb-3">
         <h2 className="text-nude-warm font-medium mb-2">Como fazer</h2>

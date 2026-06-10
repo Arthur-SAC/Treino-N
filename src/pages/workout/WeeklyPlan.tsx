@@ -18,7 +18,7 @@ export function WeeklyPlan() {
           <div className="text-sm text-muted">{t.exercises.length} exercícios</div>
         </Link>
       ))}
-      <div className="card opacity-60">
+      <div className={`card opacity-60 ${today === 0 ? "border-nude" : ""}`}>
         <div className="text-label text-muted">Dom</div>
         <div className="font-medium">Folga · descanso</div>
       </div>

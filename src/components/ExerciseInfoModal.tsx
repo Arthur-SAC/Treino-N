@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import type { Exercise } from "../lib/db";
+import { ExerciseMediaBlock } from "./ExerciseMediaBlock";
 
 interface Props {
   exercise: Exercise;
@@ -48,18 +49,7 @@ export function ExerciseInfoModal({ exercise, onClose }: Props) {
             {exercise.category} · {exercise.difficulty}
           </p>
 
-          {exercise.gifPath && (
-            <img
-              src={exercise.gifPath}
-              alt={`Demonstração: ${exercise.name}`}
-              className="w-full rounded-card mb-3"
-              onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-            />
-          )}
-          {exercise.videoUrl && (
-            <a href={exercise.videoUrl} target="_blank" rel="noreferrer"
-               className="inline-block mb-3 text-nude underline">▶ Ver vídeo do exercício</a>
-          )}
+          <ExerciseMediaBlock name={exercise.name} gifPath={exercise.gifPath} videoUrl={exercise.videoUrl} />
 
           <section>
             <h3 className="text-nude-warm font-medium mb-1">Como fazer</h3>

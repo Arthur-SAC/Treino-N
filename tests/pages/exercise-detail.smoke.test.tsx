@@ -18,4 +18,8 @@ it("mostra nome, passos e link de vídeo de um skill", async () => {
   render(<RouterProvider router={router} />);
   expect(await screen.findByText(/Parada de mão na parede/)).toBeInTheDocument();
   expect(await screen.findByText(/Ver vídeo/)).toBeInTheDocument();
+  // passos renderizados como lista numerada (<ol><li>)
+  const stepItem = await screen.findByText(/De frente pra parede/);
+  expect(stepItem.tagName).toBe("LI");
+  expect(stepItem.closest("ol")).not.toBeNull();
 });
