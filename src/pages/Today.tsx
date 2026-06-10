@@ -24,10 +24,10 @@ export function Today() {
           rightSlot={<span className="text-nude">▶</span>}
         />
       )}
-      {day.kind === "cardio" && (
+      {day.kind === "cardio" && day.templateId && (
         <TodayCard title="Cardio do dia" subtitle="2 min aquecer → 30s pula / 30s alivia × 10-12 → 2 min soltar" to={`/treino/sessao/${day.templateId}`} />
       )}
-      {day.kind === "mobilidade" && (
+      {day.kind === "mobilidade" && day.templateId && (
         <TodayCard title="Mobilidade (15-20 min)" subtitle="Ombro · costas · quadril · tornozelo" to={`/treino/sessao/${day.templateId}`} />
       )}
       {day.kind === "folga" && (

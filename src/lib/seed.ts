@@ -1,6 +1,5 @@
 import { db } from "./db";
-import { EXERCISES } from "../data/rotina-natalia-seed";
-import { WORKOUT_PLAN } from "../data/rotina-natalia-seed";
+import { EXERCISES, WORKOUT_PLAN } from "../data/rotina-natalia-seed";
 
 const SEED_VERSION = 1;
 
