@@ -32,6 +32,11 @@ export function ProgressionHistory() {
         <h1 className="font-serif text-2xl text-nude flex-1">Progressão</h1>
       </div>
 
+      <div className="flex gap-3 mb-3">
+        <Link className="text-nude underline text-sm" to="/corpo/medidas">Medidas corporais</Link>
+        <Link className="text-nude underline text-sm" to="/corpo/fotos">Fotos de progresso</Link>
+      </div>
+
       <div className="card mb-3">
         <label className="block text-muted text-xs uppercase tracking-wider mb-1">Exercício</label>
         <select
