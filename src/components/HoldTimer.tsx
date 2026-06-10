@@ -19,7 +19,10 @@ export function HoldTimer({ targetSec, onStop }: Props) {
     if (running) {
       ref.current = setInterval(() => setElapsed((e) => e + 1), 1000);
       return () => {
-        if (ref.current) clearInterval(ref.current);
+        if (ref.current) {
+          clearInterval(ref.current);
+          ref.current = null;
+        }
       };
     }
   }, [running]);

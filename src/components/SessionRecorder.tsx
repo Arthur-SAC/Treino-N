@@ -30,7 +30,13 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
   const [showInfo, setShowInfo] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  const isTimeBased = !!exercise.timeBasedSec;
+  const isSkill = !!exercise.isSkill;
+  // Só exercícios com carga externa têm campo de peso e sugestão de carga.
+  const showWeightField = !isSkill && !isTimeBased;
+
   useEffect(() => {
+    if (!showWeightField) return; // skills e exercícios por tempo não usam sugestão de carga
     let mounted = true;
     db.workoutSessions
       .where("date")
@@ -52,7 +58,7 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
         }
       });
     return () => { mounted = false; };
-  }, [exercise.id]);
+  }, [exercise.id, showWeightField]);
 
   useEffect(() => {
     if (!restRunning || restRemaining === null) return;
@@ -118,11 +124,6 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
     if (entry.sets.length > 0) onSave(entry);
   }
 
-  const isTimeBased = !!exercise.timeBasedSec;
-  const isSkill = !!exercise.isSkill;
-  const showWeightSuggestion = !isSkill && !isTimeBased;
-  const showWeightField = !isSkill && !isTimeBased;
-
   return (
     <div className="card mb-3">
       {/* Header — quebra em linha 2 se nome longo */}
@@ -151,7 +152,7 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
       )}
 
       {/* Sugestão de peso — apenas para exercícios com carga */}
-      {showWeightSuggestion && (
+      {showWeightField && (
         suggested !== null ? (
           <button
             type="button"
@@ -173,8 +174,8 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
         )
       )}
 
-      {/* Dica de progressão para skills sem carga */}
-      {isSkill && exercise.harderVariation && (
+      {/* Dica de progressão para exercícios sem carga (skills e por tempo) */}
+      {!showWeightField && exercise.harderVariation && (
         <p className="text-sm text-muted mb-3">Progresso: {exercise.harderVariation}</p>
       )}
 

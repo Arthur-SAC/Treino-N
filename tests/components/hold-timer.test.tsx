@@ -11,7 +11,8 @@ it("conta o tempo e marca o alvo atingido", async () => {
   act(() => { fireEvent.click(screen.getByRole("button", { name: /iniciar/i })); });
   act(() => { vi.advanceTimersByTime(3000); });
   expect(screen.getAllByText(/0:03/).length).toBeGreaterThan(0);
-  expect(screen.getByText(/alvo/i)).toBeInTheDocument();
+  // verifica o estado "alvo atingido" (não só o rótulo do alvo, sempre presente)
+  expect(screen.getByText(/alvo atingido/i)).toBeInTheDocument();
 });
 
 describe("HoldTimer", () => {

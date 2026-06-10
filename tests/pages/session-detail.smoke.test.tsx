@@ -160,6 +160,8 @@ describe("SessionDetail smoke — Força A", () => {
       expect(sessions[0].templateId).toBe("forca-a");
       expect(sessions[0].exercises).toHaveLength(1);
       expect(sessions[0].exercises[0].exerciseId).toBe("pendura-na-barra");
+      // exercício sem campo de peso salva weight 0 (não NaN/undefined)
+      expect(sessions[0].exercises[0].sets[0].weight).toBe(0);
     });
   });
 });
