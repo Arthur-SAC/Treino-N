@@ -17,3 +17,17 @@ it("notifica o treino do dia uma vez, no horário", async () => {
   await tick(monday0830); // segundo tick no mesmo dia não repete
   expect(spy).toHaveBeenCalledTimes(1);
 });
+
+it("notifica deload quando passam ~6 semanas desde o início", async () => {
+  const titles: string[] = [];
+  vi.stubGlobal("Notification", class {
+    static permission = "granted";
+    constructor(title: string) { titles.push(title); }
+  });
+  await setSetting("notificationsEnabled", true);
+  await setSetting("workoutReminderTime", "08:00");
+  await setSetting("programStartISO", "2026-04-27"); // ~6 semanas antes
+  // segunda-feira 08:30, 6 semanas depois
+  await tick(new Date("2026-06-08T08:30:00"));
+  expect(titles).toContain("Semana de deload");
+});

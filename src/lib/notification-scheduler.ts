@@ -5,6 +5,11 @@ import { isDeloadDue } from "./deload";
 
 let intervalId: ReturnType<typeof setInterval> | null = null;
 
+/** Data local em ISO (YYYY-MM-DD) — evita o off-by-one de toISOString() (UTC). */
+export function localDateISO(d: Date): string {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
 export async function tick(now = new Date()): Promise<void> {
   const settings = {
     notificationsEnabled: await getSetting("notificationsEnabled"),
@@ -13,7 +18,7 @@ export async function tick(now = new Date()): Promise<void> {
   };
   if (!shouldNotifyNow(now, settings)) return;
 
-  const todayISO = now.toISOString().slice(0, 10);
+  const todayISO = localDateISO(now);
   const currentMin = now.getHours() * 60 + now.getMinutes();
 
   // 1) Lembrete diário do treino do dia
@@ -40,7 +45,7 @@ export function startScheduler() {
   // grava o início do programa na 1ª vez
   void (async () => {
     if (!(await getSetting("programStartISO"))) {
-      await setSetting("programStartISO", new Date().toISOString().slice(0, 10));
+      await setSetting("programStartISO", localDateISO(new Date()));
     }
   })();
   intervalId = setInterval(() => void tick(), 60_000);
