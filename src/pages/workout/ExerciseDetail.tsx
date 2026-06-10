@@ -24,9 +24,26 @@ export function ExerciseDetail() {
         {ex.category} · {ex.difficulty}
       </p>
 
+      {ex.gifPath && (
+        <img
+          src={ex.gifPath}
+          alt={`Demonstração: ${ex.name}`}
+          className="w-full rounded-card mb-3"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+        />
+      )}
+      {ex.videoUrl && (
+        <a href={ex.videoUrl} target="_blank" rel="noreferrer"
+           className="inline-block mb-3 text-nude underline">▶ Ver vídeo do exercício</a>
+      )}
+
       <div className="card mb-3">
         <h2 className="text-nude-warm font-medium mb-2">Como fazer</h2>
-        <p className="text-sm">{ex.description}</p>
+        {ex.steps?.length ? (
+          <ol className="list-decimal pl-5 space-y-1 text-sm">
+            {ex.steps.map((s, i) => <li key={i}>{s}</li>)}
+          </ol>
+        ) : <p className="text-sm">{ex.description}</p>}
       </div>
 
       <div className="card mb-3">
@@ -66,11 +83,6 @@ export function ExerciseDetail() {
         </div>
       )}
 
-      {ex.videoUrl && (
-        <a href={ex.videoUrl} target="_blank" rel="noreferrer" className="card block text-center text-nude">
-          Ver vídeo →
-        </a>
-      )}
     </div>
   );
 }
