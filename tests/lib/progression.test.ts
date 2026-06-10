@@ -1,0 +1,27 @@
+import { describe, it, expect } from "vitest";
+import { suggestNextLoad } from "../../src/lib/progression";
+
+describe("suggestNextLoad", () => {
+  it("fácil + carga <5kg → +0,5", () => {
+    expect(suggestNextLoad({ lastLoad: 4, feedback: "easy", completedAllReps: true })).toBe(4.5);
+  });
+  it("fácil + carga 5–20 → +2", () => {
+    expect(suggestNextLoad({ lastLoad: 10, feedback: "easy", completedAllReps: true })).toBe(12);
+  });
+  it("fácil + carga >=20 → +2,5", () => {
+    expect(suggestNextLoad({ lastLoad: 20, feedback: "easy", completedAllReps: true })).toBe(22.5);
+  });
+  it("médio + completou → +1 (mantém momentum)", () => {
+    expect(suggestNextLoad({ lastLoad: 10, feedback: "medium", completedAllReps: true })).toBe(11);
+  });
+  it("difícil + completou → mantém", () => {
+    expect(suggestNextLoad({ lastLoad: 10, feedback: "hard", completedAllReps: true })).toBe(10);
+  });
+  it("não completou → -1 (piso 0)", () => {
+    expect(suggestNextLoad({ lastLoad: 10, feedback: "hard", completedAllReps: false })).toBe(9);
+    expect(suggestNextLoad({ lastLoad: 0.5, feedback: "hard", completedAllReps: false })).toBe(0);
+  });
+  it("não completou tem prioridade sobre 'easy'", () => {
+    expect(suggestNextLoad({ lastLoad: 10, feedback: "easy", completedAllReps: false })).toBe(9);
+  });
+});
