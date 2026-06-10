@@ -11,13 +11,6 @@ export function isWithinQuietHours(now: Date, from: string, to: string): boolean
   return nowMin >= fromMin || nowMin < toMin;
 }
 
-export function isWithinWorkingHours(now: Date, startHour: number, endHour: number): boolean {
-  const day = now.getDay();
-  if (day === 0 || day === 6) return false;
-  const h = now.getHours();
-  return h >= startHour && h < endHour;
-}
-
 export async function requestNotificationPermission(): Promise<boolean> {
   if (!("Notification" in window)) return false;
   if (Notification.permission === "granted") return true;

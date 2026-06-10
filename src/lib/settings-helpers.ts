@@ -1,75 +1,25 @@
 import { db } from "./db";
 
 export interface Settings {
-  onboarded: boolean;
-  seeded: boolean;
-  beautySeeded: boolean;
-  styleSeeded: boolean;
-  pathSeeded: boolean;
-  movementSeeded: boolean;
-  movementVersion: number;
-  makeupSeeded: boolean;
-  voiceSeeded: boolean;
-  morningReminderTime: string; // "HH:MM"
-  eveningReminderTime: string;
-  workoutReminderTime: string;
-  activeBreakIntervalMin: number;
-  activeBreakStartHour: number; // 0-23
-  activeBreakEndHour: number;
-  hydrationIntervalMin: number;
-  hydrationGoalMl: number;
-  quietHours: { from: string; to: string };
-  focusModeUntil: number | null; // timestamp ms
-  notificationsEnabled: boolean;
-  lastActiveBreakAt: number;
-  lastHydrationAt: number;
-  lastSkincareMorningAt: string; // "yyyy-mm-dd" or ""
-  lastSkincareEveningAt: string;
-  mealPlanVersion: number;
-  activeCycle: "adaptacao" | "variacao" | "hipertrofia" | "refinamento" | "manutencao";
-  cycleStartSessionCount: number;
-  cyclesSeeded: boolean;
-  walkGoalMin: number;
-  posturaReminderTime: string;
-  walkReminderTime: string;
-  lastPosturaReminderAt: string;
-  lastWalkReminderAt: string;
+  seedVersion: number;
+  notificationsEnabled: boolean;          // default true
+  workoutReminderTime: string;            // "HH:MM", default "08:00"
+  quietHours: { from: string; to: string }; // default { from: "22:00", to: "07:00" }
+  focusModeUntil: number | null;          // default null
+  lastWorkoutReminderAt: string;          // "yyyy-mm-dd", default ""
+  programStartISO: string;                // início do programa, default ""
+  lastDeloadNotifyAt: string;             // "yyyy-mm-dd", default ""
 }
 
-const DEFAULTS: Settings = {
-  onboarded: false,
-  seeded: false,
-  beautySeeded: false,
-  styleSeeded: false,
-  pathSeeded: false,
-  movementSeeded: false,
-  movementVersion: 1,
-  makeupSeeded: false,
-  voiceSeeded: false,
-  morningReminderTime: "08:00",
-  eveningReminderTime: "22:00",
-  workoutReminderTime: "18:00",
-  activeBreakIntervalMin: 90,
-  activeBreakStartHour: 9,
-  activeBreakEndHour: 18,
-  hydrationIntervalMin: 60,
-  hydrationGoalMl: 2000,
-  quietHours: { from: "22:00", to: "08:00" },
-  focusModeUntil: null,
+export const DEFAULTS: Settings = {
+  seedVersion: 0,
   notificationsEnabled: true,
-  lastActiveBreakAt: 0,
-  lastHydrationAt: 0,
-  lastSkincareMorningAt: "",
-  lastSkincareEveningAt: "",
-  mealPlanVersion: 1,
-  activeCycle: "adaptacao",
-  cycleStartSessionCount: 0,
-  cyclesSeeded: false,
-  walkGoalMin: 30,
-  posturaReminderTime: "19:00",
-  walkReminderTime: "12:00",
-  lastPosturaReminderAt: "",
-  lastWalkReminderAt: "",
+  workoutReminderTime: "08:00",
+  quietHours: { from: "22:00", to: "07:00" },
+  focusModeUntil: null,
+  lastWorkoutReminderAt: "",
+  programStartISO: "",
+  lastDeloadNotifyAt: "",
 };
 
 export async function getSetting<K extends keyof Settings>(key: K): Promise<Settings[K]> {
