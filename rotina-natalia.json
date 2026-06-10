@@ -1,0 +1,153 @@
+{
+  "atleta": { "nome": "Natália", "altura_m": 1.67, "peso_kg": 74.7 },
+  "objetivo": "Força, perda de gordura e liberdade de movimento. Formato em X (ombro largo, cintura fina, base firme) + skills de barra, flexão e parada de mão.",
+  "estrutura_semanal": [
+    { "dia": "Seg", "tipo": "forca", "treino": "A" },
+    { "dia": "Ter", "tipo": "cardio" },
+    { "dia": "Qua", "tipo": "forca", "treino": "B" },
+    { "dia": "Qui", "tipo": "mobilidade" },
+    { "dia": "Sex", "tipo": "forca", "treino": "C" },
+    { "dia": "Sáb", "tipo": "cardio" },
+    { "dia": "Dom", "tipo": "folga" }
+  ],
+  "principios": {
+    "series": "2-3 por exercício (começar com 2, ir pra 3)",
+    "reps": "8-12 (peso em que as últimas 2 reps são difíceis com forma perfeita)",
+    "descanso": "60-90s entre séries",
+    "sessao_min": 40,
+    "progressao": [
+      "Semana 1-2: aprender o movimento, peso leve, forma impecável.",
+      "Progressão dupla: completou as séries com folga? +1-2 reps. No topo da faixa? sobe um pouco o peso e volta pro número de baixo.",
+      "Skills progridem diminuindo a ajuda (parede mais inclinada, flexão mais baixa, menos pé na cadeira).",
+      "A cada ~6-8 semanas: 1 semana mais leve (deload).",
+      "A balança engana ao ganhar músculo: medir por roupa, foto a cada 4 semanas e carga subindo."
+    ]
+  },
+  "aquecimento": [
+    "2-3 min de corda leve, marcha no lugar ou polichinelo.",
+    "Círculos de braço e quadril; gato-camelo; agachamento livre lento.",
+    "Ativação — perna: ponte de glúteo; parte de cima: deitada de bruços, braços formando Y, T e W.",
+    "1 série leve do primeiro exercício."
+  ],
+  "treinos": {
+    "A": {
+      "titulo": "Força A · Puxar & Ombro",
+      "exercicios": [
+        { "nome": "Pendura na barra (dead hang)", "musculo": "Costas · pegada", "reps": "3 × até 20s", "skill": true, "star": false,
+          "passos": ["Segure a barra com as mãos na largura dos ombros, palmas pra frente.", "Tire os pés do chão e fique pendurada de braços esticados.", "Respire e segure o tempo que aguentar com a pegada firme."],
+          "dica": "Mantenha os ombros longe das orelhas, sem encolher o pescoço.", "cuidado": "Balançar o corpo — fique parada e controlada.",
+          "mais_facil": "Deixe os pés tocando o chão tirando parte do peso.", "mais_dificil": "Aumente o tempo de cada pendura." },
+        { "nome": "Puxada de escápula", "musculo": "Costas alta", "reps": "3 × 5", "skill": true, "star": false,
+          "passos": ["Pendurada de braços esticados, sem dobrar o cotovelo.", "Só abaixe os ombros, puxando o peito pra cima uns 3-5 cm.", "Segure 1s no topo e desça devagar."],
+          "dica": "O movimento é só dos ombros/omoplatas — os braços ficam retos.", "cuidado": "Dobrar o cotovelo (aí já vira meia barra).",
+          "mais_facil": "Faça com os pés apoiados no chão.", "mais_dificil": "Mais repetições e pausa maior no topo." },
+        { "nome": "Remada com 1 braço (apoiada)", "musculo": "Costas · dorsal", "reps": "3 × 10 / lado", "skill": false, "star": true,
+          "passos": ["Apoie uma mão e o joelho do mesmo lado num banco/sofá; costas retas e paralelas ao chão.", "Halter na outra mão, braço esticado pra baixo.", "Puxe o halter em direção à cintura subindo o cotovelo rente ao corpo; desça devagar."],
+          "dica": "Puxe com o cotovelo, não com a mão; aperte a omoplata no topo.", "cuidado": "Girar o tronco pra ajudar — mantenha o tronco firme.",
+          "mais_facil": "Halter mais leve, foco total na forma.", "mais_dificil": "Aumente o peso ou pause 1s no topo." },
+        { "nome": "Elevação lateral", "musculo": "Ombro (lateral)", "reps": "3 × 12-15", "skill": false, "star": true,
+          "passos": ["Em pé, um halter em cada mão ao lado do corpo, cotovelo levemente dobrado.", "Levante os braços pros lados até a altura dos ombros (forma um T).", "Desça devagar contando 2-3 segundos."],
+          "dica": "Lidere com os cotovelos. É o exercício que faz a largura do ombro.", "cuidado": "Usar impulso e jogar os pesos pra cima.",
+          "mais_facil": "Pouco peso — não pede carga alta.", "mais_dificil": "Descida bem lenta (3-4s) ou mais reps." },
+        { "nome": "Abertura invertida", "musculo": "Ombro (posterior) · postura", "reps": "3 × 12-15", "skill": false, "star": false,
+          "passos": ["Incline o tronco pra frente com as costas retas, braços pendendo com os halteres.", "Abra os braços pros lados apertando as costas, cotovelos levemente dobrados.", "Volte devagar."],
+          "dica": "Imagine apertar uma laranja entre as omoplatas.", "cuidado": "Arredondar as costas — mantenha o peito aberto.",
+          "mais_facil": "Sente numa cadeira e incline o tronco pra frente.", "mais_dificil": "Pause 1s na abertura." },
+        { "nome": "Rosca de bíceps", "musculo": "Braço (bíceps)", "reps": "2 × 12", "skill": false, "star": false,
+          "passos": ["Em pé, halteres ao lado do corpo, palmas pra frente.", "Dobre os cotovelos trazendo os halteres até os ombros.", "Desça devagar até esticar o braço."],
+          "dica": "Cotovelos colados no tronco, sem balançar o corpo.", "cuidado": "Usar as costas pra impulsionar o peso.",
+          "mais_facil": "Um braço de cada vez.", "mais_dificil": "Descida lenta de 3 segundos." },
+        { "nome": "Prancha", "musculo": "Core", "reps": "3 × 20-40s", "skill": false, "star": false,
+          "passos": ["Apoie antebraços e pontas dos pés no chão.", "Deixe o corpo reto da cabeça aos calcanhares.", "Segure respirando normalmente."],
+          "dica": "Aperte glúteo e abdômen pra não deixar o quadril cair.", "cuidado": "Levantar o bumbum ou afundar a lombar.",
+          "mais_facil": "Apoie os joelhos no chão.", "mais_dificil": "Aumente o tempo de cada série." }
+      ]
+    },
+    "B": {
+      "titulo": "Força B · Perna & Glúteo",
+      "nota": "Antes do romeno, aprenda a dobradiça de quadril sem peso. Peso baixo na perna? Desafie com mais reps, descida lenta (3s) e versões num pé só.",
+      "exercicios": [
+        { "nome": "Agachamento com halter no peito", "musculo": "Pernas · glúteo", "reps": "3 × 12", "skill": false, "star": false,
+          "passos": ["Segure um halter na vertical junto ao peito, pés na largura dos ombros.", "Empurre o quadril pra trás e desça como se fosse sentar numa cadeira.", "Desça até as coxas paralelas (ou até onde der) e suba pelos calcanhares."],
+          "dica": "Joelhos apontando na mesma direção dos pés; peito erguido.", "cuidado": "Calcanhar saindo do chão, ou joelho caindo pra dentro.",
+          "mais_facil": "Agache até encostar numa cadeira e suba.", "mais_dificil": "Desça mais fundo ou pause 1s embaixo." },
+        { "nome": "Afundo parado (split squat)", "musculo": "Pernas · glúteo · equilíbrio", "reps": "3 × 10 / perna", "skill": false, "star": false,
+          "passos": ["Dê um passo grande à frente, numa posição de tesoura.", "Abaixe o joelho de trás em direção ao chão, dobrando os dois joelhos ~90°.", "Suba empurrando pelo calcanhar da frente. Troque a perna."],
+          "dica": "Tronco ereto; joelho da frente alinhado com o pé.", "cuidado": "Passo curto demais sobrecarrega o joelho.",
+          "mais_facil": "Segure numa parede/cadeira e comece sem peso.", "mais_dificil": "Halteres nas mãos, ou pé de trás numa cadeira (búlgaro)." },
+        { "nome": "Levantamento romeno (dobradiça de quadril)", "musculo": "Posterior · glúteo", "reps": "3 × 12", "skill": false, "star": false,
+          "passos": ["Em pé, halteres à frente das coxas, joelhos com leve dobra que NÃO muda.", "Empurre o quadril pra trás (não agache!) descendo os halteres rente às pernas, costas retas.", "Desça até sentir o repuxo atrás da coxa e volte empurrando o quadril, apertando o glúteo."],
+          "dica": "Quadril pra trás, não pra baixo. Halteres raspando a perna.", "cuidado": "Arredondar as costas, ou dobrar muito o joelho.",
+          "mais_facil": "Aprenda sem peso, com cabo de vassoura nas costas tocando cabeça, costas e bumbum.", "mais_dificil": "Aumente o peso aos poucos." },
+        { "nome": "Elevação de quadril (ponte de glúteo)", "musculo": "Glúteo", "reps": "3 × 15", "skill": false, "star": true,
+          "passos": ["Deite de costas, joelhos dobrados e pés no chão.", "Apoie um halter sobre o quadril.", "Suba o quadril apertando o bumbum até o corpo ficar reto; segure 1s e desça."],
+          "dica": "Empurre pelos calcanhares e aperte o glúteo no topo.", "cuidado": "Arquear a lombar em vez de usar o glúteo.",
+          "mais_facil": "Só com o peso do corpo.", "mais_dificil": "Apoie os ombros num sofá (hip thrust)." },
+        { "nome": "Panturrilha em pé", "musculo": "Panturrilha", "reps": "3 × 15-20", "skill": false, "star": false,
+          "passos": ["Em pé com um halter, ponta dos pés num degrau.", "Suba na ponta dos pés o máximo possível.", "Desça devagar sentindo o alongamento."],
+          "dica": "Amplitude completa, sem pressa.", "cuidado": "Quicar rápido sem subir de verdade.",
+          "mais_facil": "Sem peso.", "mais_dificil": "Uma perna de cada vez." },
+        { "nome": "Dead bug", "musculo": "Core", "reps": "3 × 10 / lado", "skill": false, "star": false,
+          "passos": ["Deite de barriga pra cima, braços pro teto e pernas dobradas no ar.", "Estique um braço pra trás e a perna oposta pra frente, sem encostar no chão.", "Volte e alterne."],
+          "dica": "Lombar colada no chão o tempo todo.", "cuidado": "Deixar a barriga estufar e a lombar descolar.",
+          "mais_facil": "Mexa só as pernas.", "mais_dificil": "Mais lento e mais amplo." }
+      ]
+    },
+    "C": {
+      "titulo": "Força C · Empurrar & Parada de Mão",
+      "exercicios": [
+        { "nome": "Flexão inclinada", "musculo": "Peito · ombro", "reps": "3 × 8-12", "skill": true, "star": false,
+          "passos": ["Mãos numa superfície firme e alta, corpo reto e inclinado.", "Desça o peito dobrando os cotovelos.", "Empurre de volta até esticar os braços."],
+          "dica": "Corpo reto como prancha; cotovelos pra trás, não pros lados.", "cuidado": "Deixar o quadril afundar ou subir demais.",
+          "mais_facil": "Use a parede, quase em pé.", "mais_dificil": "Baixe a superfície (mesa → banco → chão), depois flexão de joelhos." },
+        { "nome": "Parada de mão na parede (segurar)", "musculo": "Ombro · core", "reps": "3 × 20-30s", "skill": true, "star": false,
+          "passos": ["De frente pra parede, mãos no chão à frente dela.", "Suba os pés caminhando pela parede até inclinar (comece baixo).", "Segure firmando ombros e barriga; desça com controle."],
+          "dica": "Empurre o chão pra longe, braços fortes.", "cuidado": "Prender a respiração ou arquear a lombar.",
+          "mais_facil": "Pés bem baixos, só o tempo confortável.", "mais_dificil": "Suba mais os pés, aproximando do vertical." },
+        { "nome": "Desenvolvimento de ombro", "musculo": "Ombro", "reps": "3 × 10-12", "skill": false, "star": false,
+          "passos": ["Sentada ou em pé, halteres na altura dos ombros, palmas pra frente.", "Empurre pra cima até esticar os braços.", "Desça devagar até a altura das orelhas."],
+          "dica": "Barriga firme, sem arquear as costas.", "cuidado": "Empurrar à frente do corpo.",
+          "mais_facil": "Sentada com encosto, um braço de cada vez.", "mais_dificil": "Mais peso ou pausa de 1s no topo." },
+        { "nome": "Elevação lateral", "musculo": "Ombro (lateral)", "reps": "3 × 12-15", "skill": false, "star": true,
+          "passos": ["Em pé, levante os halteres pros lados até a altura dos ombros.", "Desça devagar.", "Aparece 2x na semana de propósito — é o motor do shape em X."],
+          "dica": "Leve, controlado, liderando com o cotovelo.", "cuidado": "Pressa e impulso.",
+          "mais_facil": "Bem leve.", "mais_dificil": "Descida de 3-4 segundos." },
+        { "nome": "Flexão pike", "musculo": "Ombro", "reps": "3 × 6-10", "skill": true, "star": false,
+          "passos": ["De quatro, eleve o quadril bem alto (V invertido).", "Dobre os cotovelos levando a cabeça em direção ao chão.", "Empurre de volta."],
+          "dica": "Quanto mais alto o quadril, mais trabalha o ombro.", "cuidado": "Virar flexão normal com quadril baixo.",
+          "mais_facil": "Mãos numa superfície alta.", "mais_dificil": "Pés numa cadeira." },
+        { "nome": "Tríceps com halter", "musculo": "Braço (tríceps)", "reps": "2 × 12", "skill": false, "star": false,
+          "passos": ["Segure 1 halter com as duas mãos atrás da cabeça.", "Estique os braços pra cima.", "Desça devagar atrás da cabeça e suba."],
+          "dica": "Cotovelos apontando pro teto e parados.", "cuidado": "Abrir os cotovelos pros lados.",
+          "mais_facil": "Halter mais leve.", "mais_dificil": "Um braço de cada vez." },
+        { "nome": "Prancha lateral", "musculo": "Core · oblíquo", "reps": "3 × 20s / lado", "skill": false, "star": false,
+          "passos": ["Deite de lado apoiada no antebraço, pernas esticadas.", "Levante o quadril até o corpo ficar reto.", "Segure e troque o lado."],
+          "dica": "Empilhe ombro, quadril e pé numa linha.", "cuidado": "Deixar o quadril cair.",
+          "mais_facil": "Joelhos dobrados no chão.", "mais_dificil": "Aumente o tempo." }
+      ]
+    }
+  },
+  "cardio": {
+    "dias": "Ter · Sáb",
+    "intervalo": "2 min aquecer → 30s pula / 30s alivia × 10-12 → 2 min soltar (~22 min).",
+    "alternativas": ["polichinelo", "mountain climber", "saltos laterais"],
+    "pegada": "Treinador de pegada 3 × 15-20 cada mão (ajuda na barra).",
+    "sabado": "Mais leve: corda + caminhada longa."
+  },
+  "mobilidade": {
+    "dia": "Qui",
+    "duracao_min": "15-20",
+    "blocos": [
+      "Ombro: toalha esticada passando por cima da cabeça até atrás.",
+      "Costas: gato-camelo e rotação do tronco deitada de lado.",
+      "Quadril: agachamento fundo segurado; 90/90 girando os lados.",
+      "Tornozelo: joelho à parede sem tirar o calcanhar do chão."
+    ]
+  },
+  "roadmap_skills": {
+    "barra": ["Pendura", "Puxada de escápula", "Pendura ativa", "Remada horizontal (sob a mesa)", "Barra assistida (pé na cadeira)", "1ª barra"],
+    "flexao": ["Inclinada alta", "Inclinada baixa", "No joelho", "Flexão completa", "Variações"],
+    "parada_de_mao": ["Pés na parede", "Peito na parede", "Segurar 30s+", "Flexão pike", "Flexão na parada"],
+    "nota_barra": "Sem negativa. Força de puxar via remada apoiada + remada horizontal + barra assistida com o pé. Deixar a barra montada num vão fixo (anti-atrito)."
+  }
+}

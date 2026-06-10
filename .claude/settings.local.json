@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(bash scripts/start-server.sh --project-dir \"C:/Users/ASCalderon/Desktop/Treino-N\")",
+      "PowerShell($n = Get-Command node -ErrorAction SilentlyContinue; if \\($n\\) { $n.Source; node --version } else { \"node NOT FOUND\" }; $g = Get-Command git -ErrorAction SilentlyContinue; if\\($g\\){ \"git: \"+$g.Source } else { \"git NOT FOUND\" })",
+      "PowerShell($tmp = \"$env:TEMP\\\\treino-tf-ref\"; if \\(Test-Path $tmp\\) { Remove-Item -Recurse -Force $tmp }; git clone --depth 1 https://github.com/Arthur-SAC/Treino-TF.git $tmp; if \\($?\\) { \"CLONED OK\" })"
+    ]
+  }
+}
