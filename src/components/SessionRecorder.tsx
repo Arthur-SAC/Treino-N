@@ -4,6 +4,7 @@ import { db } from "../lib/db";
 import { suggestNextLoad } from "../lib/progression";
 import { ExerciseInfoModal } from "./ExerciseInfoModal";
 import { InfoIcon } from "./InfoIcon";
+import { HoldTimer } from "./HoldTimer";
 
 interface Props {
   exercise: Exercise;
@@ -117,6 +118,11 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
     if (entry.sets.length > 0) onSave(entry);
   }
 
+  const isTimeBased = !!exercise.timeBasedSec;
+  const isSkill = !!exercise.isSkill;
+  const showWeightSuggestion = !isSkill && !isTimeBased;
+  const showWeightField = !isSkill && !isTimeBased;
+
   return (
     <div className="card mb-3">
       {/* Header — quebra em linha 2 se nome longo */}
@@ -137,24 +143,39 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
         </p>
       </div>
 
-      {suggested !== null ? (
-        <button
-          type="button"
-          onClick={applySuggestion}
-          className="text-xs text-nude underline mb-3 block"
-        >
-          Sugestão: {suggested} kg (aplicar em todas)
-        </button>
-      ) : exercise.startLoadKg ? (
-        <button
-          type="button"
-          onClick={() => setSets((prev) => prev.map((s) => ({ ...s, weight: String(exercise.startLoadKg) })))}
-          className="text-xs text-nude underline mb-3 block"
-        >
-          Sugestão inicial: {exercise.startLoadKg} kg (aplicar em todas)
-        </button>
-      ) : (
-        <p className="text-xs text-muted mb-3">Peso corporal</p>
+      {/* Hold timer para exercícios por tempo */}
+      {isTimeBased && (
+        <div className="mb-3">
+          <HoldTimer targetSec={exercise.timeBasedSec} />
+        </div>
+      )}
+
+      {/* Sugestão de peso — apenas para exercícios com carga */}
+      {showWeightSuggestion && (
+        suggested !== null ? (
+          <button
+            type="button"
+            onClick={applySuggestion}
+            className="text-xs text-nude underline mb-3 block"
+          >
+            Sugestão: {suggested} kg (aplicar em todas)
+          </button>
+        ) : exercise.startLoadKg ? (
+          <button
+            type="button"
+            onClick={() => setSets((prev) => prev.map((s) => ({ ...s, weight: String(exercise.startLoadKg) })))}
+            className="text-xs text-nude underline mb-3 block"
+          >
+            Sugestão inicial: {exercise.startLoadKg} kg (aplicar em todas)
+          </button>
+        ) : (
+          <p className="text-xs text-muted mb-3">Peso corporal</p>
+        )
+      )}
+
+      {/* Dica de progressão para skills sem carga */}
+      {isSkill && exercise.harderVariation && (
+        <p className="text-sm text-muted mb-3">Progresso: {exercise.harderVariation}</p>
       )}
 
       {/* Sets — grid pra controlar largura exata, sem flex-1 sobrando */}
@@ -162,23 +183,27 @@ export function SessionRecorder({ exercise, setsTarget, repsTarget, restSec, onS
         {sets.map((s, i) => (
           <div
             key={i}
-            className={`grid grid-cols-[2.5rem_1fr_1fr_2rem] gap-1.5 items-center ${
-              s.done ? "opacity-50" : ""
-            }`}
+            className={`gap-1.5 items-center ${
+              showWeightField
+                ? "grid grid-cols-[2.5rem_1fr_1fr_2rem]"
+                : "grid grid-cols-[2.5rem_1fr_2rem]"
+            } ${s.done ? "opacity-50" : ""}`}
           >
             <span className="text-muted text-xs">#{i + 1}</span>
-            <div className="relative min-w-0">
-              <input
-                type="text"
-                inputMode="decimal"
-                value={s.weight}
-                onChange={(e) => handleSetChange(i, "weight", e.target.value)}
-                placeholder="kg"
-                disabled={s.done}
-                className="w-full bg-bg-deep border border-bg-border rounded-md px-2 py-1.5 pr-7 text-nude-warm text-sm"
-              />
-              <span className="absolute right-2 top-1/2 -translate-y-1/2 text-muted text-[0.65rem]">kg</span>
-            </div>
+            {showWeightField && (
+              <div className="relative min-w-0">
+                <input
+                  type="text"
+                  inputMode="decimal"
+                  value={s.weight}
+                  onChange={(e) => handleSetChange(i, "weight", e.target.value)}
+                  placeholder="kg"
+                  disabled={s.done}
+                  className="w-full bg-bg-deep border border-bg-border rounded-md px-2 py-1.5 pr-7 text-nude-warm text-sm"
+                />
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 text-muted text-[0.65rem]">kg</span>
+              </div>
+            )}
             <div className="relative min-w-0">
               <input
                 type="text"
