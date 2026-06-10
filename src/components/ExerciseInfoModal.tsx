@@ -45,7 +45,7 @@ export function ExerciseInfoModal({ exercise, onClose }: Props) {
 
         <div className="p-4 space-y-3">
           <p className="text-muted text-xs uppercase tracking-wider">
-            {exercise.category} · {exercise.difficulty} · exposição {exercise.exposureLevel}/5
+            {exercise.category} · {exercise.difficulty}
           </p>
 
           <section>

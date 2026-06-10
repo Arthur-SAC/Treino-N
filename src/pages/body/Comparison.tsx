@@ -8,23 +8,18 @@ type Tag = ProgressPhoto["tag"];
 
 export function Comparison() {
   const [tag, setTag] = useState<Tag>("front");
-  const goals = useLiveQuery(
-    () => db.photos.where("[category+tag]").equals(["goal", tag]).toArray(),
-    [tag],
-  );
-  const selves = useLiveQuery(
-    () => db.photos.where("[category+tag]").equals(["self", tag]).sortBy("date"),
+  const photos = useLiveQuery(
+    () => db.photos.where("tag").equals(tag).sortBy("date"),
     [tag],
   );
 
-  const oldest = selves?.[0];
-  const newest = selves?.[selves.length - 1];
-  const goal = goals?.[0];
+  const oldest = photos?.[0];
+  const newest = photos?.[photos.length - 1];
 
   return (
     <div className="p-4 pb-24">
       <div className="mb-4 flex items-center gap-3">
-        <Link to="/corpo" className="text-muted text-sm">&larr; Corpo</Link>
+        <Link to="/corpo/fotos" className="text-muted text-sm">&larr; Fotos</Link>
         <h1 className="font-serif text-2xl text-nude flex-1">Comparação</h1>
       </div>
 
@@ -44,11 +39,6 @@ export function Comparison() {
             </button>
           ))}
         </div>
-      </div>
-
-      <div className="card mb-4">
-        <h2 className="text-nude-warm font-medium mb-3">Atual × Objetivo</h2>
-        <PhotoComparator left={newest} leftLabel="Atual" right={goal} rightLabel="Objetivo" />
       </div>
 
       <div className="card">

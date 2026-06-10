@@ -23,7 +23,7 @@ export function ExerciseCard({ ex }: { ex: Exercise }) {
     <Link to={`/treino/exercicio/${ex.id}`} className="card block hover:border-nude/40 transition">
       <div className="flex justify-between items-baseline mb-1">
         <span className="text-muted text-xs uppercase tracking-wider">{CATEGORY_LABEL[ex.category] ?? ex.category}</span>
-        <span className="text-muted text-xs">{DIFFICULTY_LABEL[ex.difficulty]} · exp {ex.exposureLevel}/5</span>
+        <span className="text-muted text-xs">{DIFFICULTY_LABEL[ex.difficulty]}</span>
       </div>
       <h3 className="text-nude-warm font-medium">{ex.name}</h3>
     </Link>

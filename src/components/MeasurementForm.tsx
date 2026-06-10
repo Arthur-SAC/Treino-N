@@ -10,16 +10,10 @@ interface Props {
 
 const FIELDS: Array<{ key: keyof MeasurementInput; label: string }> = [
   { key: "weightKg", label: "Peso (kg)" },
-  { key: "neckCm", label: "Pescoço" },
-  { key: "shouldersCm", label: "Ombros" },
-  { key: "chestCm", label: "Busto" },
   { key: "waistCm", label: "Cintura" },
   { key: "hipCm", label: "Quadril" },
   { key: "thighLeftCm", label: "Coxa esquerda" },
-  { key: "thighRightCm", label: "Coxa direita" },
   { key: "armCm", label: "Braço" },
-  { key: "forearmCm", label: "Antebraço" },
-  { key: "calfCm", label: "Panturrilha" },
 ];
 
 function todayISO(): string {

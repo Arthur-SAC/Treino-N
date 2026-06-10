@@ -8,13 +8,8 @@ import { db } from "../lib/db";
 
 export function Settings() {
   const notif = useSetting("notificationsEnabled");
-  const morning = useSetting("morningReminderTime");
-  const evening = useSetting("eveningReminderTime");
   const workout = useSetting("workoutReminderTime");
   const quietHours = useSetting("quietHours");
-  const breakInterval = useSetting("activeBreakIntervalMin");
-  const hydrInterval = useSetting("hydrationIntervalMin");
-  const hydrGoal = useSetting("hydrationGoalMl");
   const focus = useSetting("focusModeUntil");
 
   const [busy, setBusy] = useState(false);
@@ -61,17 +56,13 @@ export function Settings() {
           })),
         ),
         sessions: await db.workoutSessions.toArray(),
-        meals: await db.meals.toArray(),
-        skincareLogs: await db.skincareLogs.toArray(),
-        haircare: await db.haircare.toArray(),
-        dailyLog: await db.dailyLog.toArray(),
       };
       const encrypted = await encryptBackup(payload, password);
       const blob = new Blob([encrypted], { type: "application/octet-stream" });
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `trein-final-${new Date().toISOString().slice(0, 10)}.trein-backup`;
+      link.download = `treino-natalia-${new Date().toISOString().slice(0, 10)}.trein-backup`;
       link.click();
       URL.revokeObjectURL(url);
       setInfo("Backup baixado.");
@@ -94,15 +85,11 @@ export function Settings() {
       const encrypted = await file.text();
       type ImportPayload = {
         measurements: unknown[];
-        photos: Array<{ blob: string; date: string; tag: string; category: string }>;
+        photos: Array<{ blob: string; date: string; tag: string }>;
         sessions: unknown[];
-        meals: unknown[];
-        skincareLogs: unknown[];
-        haircare: unknown[];
-        dailyLog: unknown[];
       };
       const payload = await decryptBackup<ImportPayload>(encrypted, password);
-      await db.transaction("rw", [db.measurements, db.photos, db.workoutSessions, db.meals, db.skincareLogs, db.haircare, db.dailyLog], async () => {
+      await db.transaction("rw", [db.measurements, db.photos, db.workoutSessions], async () => {
         await db.measurements.bulkAdd(payload.measurements as never);
         await db.photos.bulkAdd(
           await Promise.all(
@@ -113,10 +100,6 @@ export function Settings() {
           ) as never,
         );
         await db.workoutSessions.bulkAdd(payload.sessions as never);
-        await db.meals.bulkAdd(payload.meals as never);
-        await db.skincareLogs.bulkAdd(payload.skincareLogs as never);
-        await db.haircare.bulkAdd(payload.haircare as never);
-        await db.dailyLog.bulkAdd(payload.dailyLog as never);
       });
       setInfo("Backup importado.");
     } catch (e) {
@@ -144,37 +127,15 @@ export function Settings() {
       {error && <p className="text-red-300 text-sm">{error}</p>}
 
       <div className="card space-y-3">
-        <h2 className="text-nude-warm font-medium">Notificações</h2>
+        <h2 className="text-nude-warm font-medium">Notificações de treino</h2>
         <label className="flex items-center justify-between">
           <span className="text-sm">Ativadas</span>
           <input type="checkbox" checked={notif} onChange={() => void toggleNotifs()} />
         </label>
         <div>
-          <label className="block text-muted text-xs uppercase tracking-wider mb-1">Manhã</label>
-          <input type="time" value={morning} onChange={(e) => void setSetting("morningReminderTime", e.target.value)}
-                 className="w-full bg-bg-deep border border-bg-border rounded-md px-3 py-2 text-nude-warm" />
-        </div>
-        <div>
-          <label className="block text-muted text-xs uppercase tracking-wider mb-1">Treino</label>
+          <label className="block text-muted text-xs uppercase tracking-wider mb-1">Lembrete de treino</label>
           <input type="time" value={workout} onChange={(e) => void setSetting("workoutReminderTime", e.target.value)}
                  className="w-full bg-bg-deep border border-bg-border rounded-md px-3 py-2 text-nude-warm" />
-        </div>
-        <div>
-          <label className="block text-muted text-xs uppercase tracking-wider mb-1">Noite</label>
-          <input type="time" value={evening} onChange={(e) => void setSetting("eveningReminderTime", e.target.value)}
-                 className="w-full bg-bg-deep border border-bg-border rounded-md px-3 py-2 text-nude-warm" />
-        </div>
-        <div>
-          <label className="block text-muted text-xs uppercase tracking-wider mb-1">Pausa ativa a cada</label>
-          <input type="number" min={30} max={240} value={breakInterval} onChange={(e) => void setSetting("activeBreakIntervalMin", Number(e.target.value))}
-                 className="w-full bg-bg-deep border border-bg-border rounded-md px-3 py-2 text-nude-warm" />
-          <p className="text-muted text-xs mt-1">minutos</p>
-        </div>
-        <div>
-          <label className="block text-muted text-xs uppercase tracking-wider mb-1">Hidratação a cada</label>
-          <input type="number" min={30} max={240} value={hydrInterval} onChange={(e) => void setSetting("hydrationIntervalMin", Number(e.target.value))}
-                 className="w-full bg-bg-deep border border-bg-border rounded-md px-3 py-2 text-nude-warm" />
-          <p className="text-muted text-xs mt-1">minutos · meta diária: {hydrGoal}ml</p>
         </div>
       </div>
 
@@ -223,7 +184,6 @@ export function Settings() {
 
       <div className="card space-y-2">
         <h2 className="text-nude-warm font-medium">Sistema</h2>
-        <p className="text-muted text-xs">No Android, adicione o app na lista "Não otimizar bateria" pra notificações chegarem em tempo.</p>
         <button onClick={() => void wipeAll()} className="w-full bg-red-900/40 border border-red-900 text-red-200 rounded-md py-2 text-sm">
           Apagar TUDO
         </button>

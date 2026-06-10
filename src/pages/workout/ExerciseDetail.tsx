@@ -21,7 +21,7 @@ export function ExerciseDetail() {
       </div>
       <h1 className="font-serif text-2xl text-nude mb-1">{ex.name}</h1>
       <p className="text-muted text-xs mb-4">
-        {ex.category} · {ex.difficulty} · exposição {ex.exposureLevel}/5
+        {ex.category} · {ex.difficulty}
       </p>
 
       <div className="card mb-3">

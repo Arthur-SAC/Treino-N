@@ -13,7 +13,6 @@ function todayISO(): string {
 
 export function PhotoUpload({ onUpload }: Props) {
   const [tag, setTag] = useState<ProgressPhoto["tag"]>("front");
-  const [category, setCategory] = useState<ProgressPhoto["category"]>("self");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -28,7 +27,6 @@ export function PhotoUpload({ onUpload }: Props) {
         date: todayISO(),
         blob: compressed,
         tag,
-        category,
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Falha ao processar imagem");
@@ -40,20 +38,6 @@ export function PhotoUpload({ onUpload }: Props) {
 
   return (
     <div className="space-y-3">
-      <div className="flex gap-2">
-        {(["self", "goal"] as const).map((c) => (
-          <button
-            key={c}
-            type="button"
-            onClick={() => setCategory(c)}
-            className={`flex-1 py-2 rounded-md text-sm ${
-              category === c ? "bg-wine-light text-nude-warm" : "bg-bg-deep text-muted border border-bg-border"
-            }`}
-          >
-            {c === "self" ? "Atual" : "Objetivo"}
-          </button>
-        ))}
-      </div>
       <div className="flex gap-2">
         {(["front", "side", "back", "custom"] as const).map((t) => (
           <button

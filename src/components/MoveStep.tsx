@@ -1,5 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import type { DanceMove } from "../lib/db";
+
+interface DanceMove {
+  name: string;
+  description: string;
+  durationSec: number;
+  repeat?: number;
+}
 
 interface Props {
   move: DanceMove;
@@ -29,7 +35,7 @@ export function MoveStep({ move, active, onComplete }: Props) {
   useEffect(() => {
     if (!running || !active) return;
     const id = setInterval(() => {
-      setRemaining((r) => {
+      setRemaining((r: number) => {
         if (r <= 1) {
           clearInterval(id);
           setRunning(false);

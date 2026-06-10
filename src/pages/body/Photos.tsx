@@ -7,7 +7,7 @@ import { formatDateBR } from "../../lib/format";
 
 export function Photos() {
   const photos = useLiveQuery(async () => {
-    const list = await db.photos.where("category").equals("self").sortBy("date");
+    const list = await db.photos.orderBy("date").toArray();
     return list.reverse();
   }, []);
 
@@ -24,7 +24,7 @@ export function Photos() {
   return (
     <div className="p-4 pb-24">
       <div className="mb-4 flex items-center gap-3">
-        <Link to="/corpo" className="text-muted text-sm">&larr; Corpo</Link>
+        <Link to="/corpo/medidas" className="text-muted text-sm">&larr; Medidas</Link>
         <h1 className="font-serif text-2xl text-nude flex-1">Fotos</h1>
       </div>
 
