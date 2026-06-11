@@ -23,7 +23,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: true,
     isStar: false,
     timeBasedSec: 20,
-    videoUrl: "https://www.youtube.com/results?search_query=dead+hang+pendura+na+barra+tutorial",
+    videoUrl: "https://www.youtube.com/watch?v=RNZEGcwmxdo",
     steps: [
       "Segure a barra com as mãos na largura dos ombros, palmas pra frente.",
       "Tire os pés do chão e fique pendurada de braços esticados.",
@@ -45,6 +45,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: true,
     isStar: false,
     frames: ["/exercises/puxada-de-escapula-0.jpg", "/exercises/puxada-de-escapula-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=2f97pFlCLQk",
     steps: [
       "Pendurada de braços esticados, sem dobrar o cotovelo.",
       "Só abaixe os ombros, puxando o peito pra cima uns 3-5 cm.",
@@ -66,6 +67,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: true,
     frames: ["/exercises/remada-com-1-braco-0.jpg", "/exercises/remada-com-1-braco-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=VoGNKTI5wG8",
     steps: [
       "Apoie uma mão e o joelho do mesmo lado num banco/sofá; costas retas e paralelas ao chão.",
       "Halter na outra mão, braço esticado pra baixo.",
@@ -87,6 +89,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: true,
     frames: ["/exercises/elevacao-lateral-0.jpg", "/exercises/elevacao-lateral-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=W5hRdgwEoEA",
     steps: [
       "Em pé, um halter em cada mão ao lado do corpo, cotovelo levemente dobrado.",
       "Levante os braços pros lados até a altura dos ombros (forma um T).",
@@ -108,6 +111,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/abertura-invertida-0.jpg", "/exercises/abertura-invertida-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=neiVTL2U5Qo",
     steps: [
       "Incline o tronco pra frente com as costas retas, braços pendendo com os halteres.",
       "Abra os braços pros lados apertando as costas, cotovelos levemente dobrados.",
@@ -129,6 +133,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/rosca-de-biceps-0.jpg", "/exercises/rosca-de-biceps-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=p2S4e8xRCkI",
     steps: [
       "Em pé, halteres ao lado do corpo, palmas pra frente.",
       "Dobre os cotovelos trazendo os halteres até os ombros.",
@@ -151,6 +156,7 @@ export const EXERCISES: Exercise[] = [
     isStar: false,
     timeBasedSec: 20,
     frames: ["/exercises/prancha-0.jpg", "/exercises/prancha-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=Yu0wjtD5FkU",
     steps: [
       "Apoie antebraços e pontas dos pés no chão.",
       "Deixe o corpo reto da cabeça aos calcanhares.",
@@ -174,6 +180,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/agachamento-com-halter-no-peito-0.jpg", "/exercises/agachamento-com-halter-no-peito-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=6cSmqSho_Ks",
     steps: [
       "Segure um halter na vertical junto ao peito, pés na largura dos ombros.",
       "Empurre o quadril pra trás e desça como se fosse sentar numa cadeira.",
@@ -195,6 +202,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/afundo-parado-0.jpg", "/exercises/afundo-parado-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=6Zz_RG0EHFE",
     steps: [
       "Dê um passo grande à frente, numa posição de tesoura.",
       "Abaixe o joelho de trás em direção ao chão, dobrando os dois joelhos ~90°.",
@@ -216,6 +224,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/levantamento-romeno-0.jpg", "/exercises/levantamento-romeno-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=tveTE065Ub0",
     steps: [
       "Em pé, halteres à frente das coxas, joelhos com leve dobra que NÃO muda.",
       "Empurre o quadril pra trás (não agache!) descendo os halteres rente às pernas, costas retas.",
@@ -237,6 +246,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: true,
     frames: ["/exercises/elevacao-de-quadril-0.jpg", "/exercises/elevacao-de-quadril-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=le8ZN02BQCE",
     steps: [
       "Deite de costas, joelhos dobrados e pés no chão.",
       "Apoie um halter sobre o quadril.",
@@ -258,6 +268,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/panturrilha-em-pe-0.jpg", "/exercises/panturrilha-em-pe-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=cklp_Xh5V8M",
     steps: [
       "Em pé com um halter, ponta dos pés num degrau.",
       "Suba na ponta dos pés o máximo possível.",
@@ -279,6 +290,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/dead-bug-0.jpg", "/exercises/dead-bug-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=4XLEnwUr1d8",
     steps: [
       "Deite de barriga pra cima, braços pro teto e pernas dobradas no ar.",
       "Estique um braço pra trás e a perna oposta pra frente, sem encostar no chão.",
@@ -302,6 +314,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: true,
     isStar: false,
     frames: ["/exercises/flexao-inclinada-0.jpg", "/exercises/flexao-inclinada-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=1cydXqE5Bro",
     steps: [
       "Mãos numa superfície firme e alta, corpo reto e inclinado.",
       "Desça o peito dobrando os cotovelos.",
@@ -324,6 +337,7 @@ export const EXERCISES: Exercise[] = [
     isStar: false,
     timeBasedSec: 20,
     frames: ["/exercises/parada-de-mao-na-parede-0.jpg", "/exercises/parada-de-mao-na-parede-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=e_4QhGgDJfg",
     steps: [
       "De frente pra parede, mãos no chão à frente dela.",
       "Suba os pés caminhando pela parede até inclinar (comece baixo).",
@@ -345,6 +359,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/desenvolvimento-de-ombro-0.jpg", "/exercises/desenvolvimento-de-ombro-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=eufDL9MmF8A",
     steps: [
       "Sentada ou em pé, halteres na altura dos ombros, palmas pra frente.",
       "Empurre pra cima até esticar os braços.",
@@ -366,7 +381,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "intermediario",
     isSkill: true,
     isStar: false,
-    videoUrl: "https://www.youtube.com/results?search_query=flexao+pike+push+up+tutorial",
+    videoUrl: "https://www.youtube.com/watch?v=BIW_B9JU8gk",
     steps: [
       "De quatro, eleve o quadril bem alto (V invertido).",
       "Dobre os cotovelos levando a cabeça em direção ao chão.",
@@ -388,6 +403,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/triceps-com-halter-0.jpg", "/exercises/triceps-com-halter-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=VakpIeaaeXA",
     steps: [
       "Segure 1 halter com as duas mãos atrás da cabeça.",
       "Estique os braços pra cima.",
@@ -410,6 +426,7 @@ export const EXERCISES: Exercise[] = [
     isStar: false,
     timeBasedSec: 20,
     frames: ["/exercises/prancha-lateral-0.jpg", "/exercises/prancha-lateral-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=2NjO5KrlVEM",
     steps: [
       "Deite de lado apoiada no antebraço, pernas esticadas.",
       "Levante o quadril até o corpo ficar reto.",
@@ -433,7 +450,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     timeBasedSec: 30,
-    videoUrl: "https://www.youtube.com/results?search_query=hiit+pular+corda+iniciante",
+    videoUrl: "https://www.youtube.com/watch?v=XhlZAEoPIBI",
     steps: [
       "Aqueça 2 min com corda leve ou marcha no lugar.",
       "Alterne 30s intenso / 30s leve por 10-12 rodadas.",
@@ -454,7 +471,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    videoUrl: "https://www.youtube.com/results?search_query=mobilidade+de+ombro+com+toalha",
+    videoUrl: "https://www.youtube.com/watch?v=oZ7vAzBN4YI",
     steps: [
       "Segure uma toalha esticada com as duas mãos, braços à frente.",
       "Passe a toalha por cima da cabeça até atrás das costas, com os braços esticados.",
@@ -476,13 +493,15 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     frames: ["/exercises/mobilidade-costas-0.jpg", "/exercises/mobilidade-costas-1.jpg"],
+    videoUrl: "https://www.youtube.com/watch?v=zwSYR-Kifkg",
     steps: [
-      "Gato-camelo: em 4 apoios, alterne arquear a coluna (gato) e afundar a barriga (camelo), ~10 ciclos.",
-      "Deite de lado com os joelhos dobrados; gire o tronco abrindo o braço de cima pro outro lado.",
-      "Acompanhe o giro com a respiração e troque o lado.",
+      "Gato-camelo: em 4 apoios (mãos sob os ombros, joelhos sob o quadril), alterne arquear a coluna pra cima como um gato (olhando pro umbigo) e afundar a barriga deixando o peito subir (camelo). ~10 ciclos, bem devagar.",
+      "Rotação (livro abrindo): deite de lado com os joelhos dobrados à frente e os dois braços esticados juntos no chão, na altura do peito.",
+      "Deslize o braço de cima por cima do de baixo e abra ele pro lado oposto, como um livro abrindo, acompanhando a mão com o olhar — até as costas e o ombro de cima chegarem perto do chão atrás de você.",
+      "Volte devagar; repita ~6 a 8 vezes acompanhando a respiração e troque de lado.",
     ],
     description:
-      "Gato-camelo em 4 apoios alternando arquear e afundar a coluna. Depois, deitada de lado, rotação de tronco abrindo o braço de cima pro outro lado.",
+      "Gato-camelo em 4 apoios alternando arquear e afundar a coluna. Depois, deitada de lado com os braços esticados juntos, rotação de tronco abrindo o braço de cima como um livro abrindo, até encostar do outro lado.",
     proTips: ["Sincronize com a respiração; mobilize vértebra por vértebra, devagar."],
     commonMistakes: ["Fazer rápido e em bloco, sem soltar a coluna."],
     easierVariation: "Amplitude menor no giro.",
@@ -496,7 +515,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    videoUrl: "https://www.youtube.com/results?search_query=mobilidade+de+quadril+90+90+agachamento+profundo",
+    videoUrl: "https://www.youtube.com/watch?v=w_WVBJxzDkc",
     steps: [
       "Agachamento fundo: desça o máximo com os calcanhares no chão e segure, abrindo os joelhos com os cotovelos.",
       "Sente em 90/90 (uma perna à frente, outra ao lado, ambas a 90°) e incline o tronco sobre a da frente.",
@@ -517,7 +536,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    videoUrl: "https://www.youtube.com/results?search_query=mobilidade+de+tornozelo+joelho+na+parede",
+    videoUrl: "https://www.youtube.com/watch?v=7TR98EdBGIk",
     steps: [
       "Em pé de frente pra parede, um pé à frente.",
       "Leve o joelho em direção à parede sem tirar o calcanhar do chão.",
