@@ -38,6 +38,15 @@ describe("rotina-natalia seed", () => {
     expect(comum.gifPath).toBe("/exercises/elevacao-lateral.gif");
   });
 
+  it("mobilidade de quinta é dividida em 4 blocos (ombro, costas, quadril, tornozelo)", () => {
+    const mob = WORKOUT_PLAN.find((t) => t.id === "mobilidade-qui")!;
+    expect(mob.exercises.map((e) => e.exerciseId)).toEqual([
+      "mobilidade-ombro", "mobilidade-costas", "mobilidade-quadril", "mobilidade-tornozelo",
+    ]);
+    const ids = new Set(EXERCISES.map((e) => e.id));
+    expect(ids.has("mobilidade-geral")).toBe(false); // id antigo removido
+  });
+
   it("Força A tem 7 exercícios na ordem da rotina", () => {
     const a = WORKOUT_PLAN.find((t) => t.id === "forca-a")!;
     expect(a.exercises.map((e) => e.exerciseId)).toEqual([
