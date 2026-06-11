@@ -8,7 +8,7 @@ export function WeeklyPlan() {
   const templates = useLiveQuery(() => db.workoutTemplates.orderBy("dayOfWeek").toArray(), []);
   const today = new Date().getDay();
   return (
-    <div className="p-4 space-y-3">
+    <div className="p-4 pb-24 space-y-3">
       <h1 className="text-2xl font-serif">Plano da semana</h1>
       {templates?.map((t) => (
         <Link key={t.id} to={`/treino/sessao/${t.id}`}
