@@ -23,3 +23,5 @@ eu/
 objetivo/
 *.jpg
 *.jpeg
+# Exceção: imagens de demonstração dos exercícios (domínio público) DEVEM ser versionadas
+!public/exercises/*.jpg

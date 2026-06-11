@@ -30,10 +30,10 @@ describe("rotina-natalia seed", () => {
     expect(prancha.timeBasedSec).toBe(20);
   });
 
-  it("skills têm videoUrl; exercícios com carga têm frames (2 quadros)", () => {
-    const skill = EXERCISES.find((e) => e.id === "parada-de-mao-na-parede")!;
-    expect(skill.isSkill).toBe(true);
-    expect(skill.videoUrl).toMatch(/youtube\.com/);
+  it("exercício só com vídeo tem videoUrl; exercícios com imagem têm frames (2 quadros)", () => {
+    const pendura = EXERCISES.find((e) => e.id === "pendura-na-barra")!;
+    expect(pendura.videoUrl).toMatch(/youtube\.com/);
+    expect(pendura.frames).toBeUndefined();
     const comum = EXERCISES.find((e) => e.id === "elevacao-lateral")!;
     expect(comum.frames).toEqual([
       "/exercises/elevacao-lateral-0.jpg",

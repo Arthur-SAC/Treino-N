@@ -44,7 +44,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "intermediario",
     isSkill: true,
     isStar: false,
-    videoUrl: "https://www.youtube.com/results?search_query=puxada+de+escapula+scapular+pull+tutorial",
+    frames: ["/exercises/puxada-de-escapula-0.jpg", "/exercises/puxada-de-escapula-1.jpg"],
     steps: [
       "Pendurada de braços esticados, sem dobrar o cotovelo.",
       "Só abaixe os ombros, puxando o peito pra cima uns 3-5 cm.",
@@ -301,7 +301,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "intermediario",
     isSkill: true,
     isStar: false,
-    videoUrl: "https://www.youtube.com/results?search_query=flexao+inclinada+tutorial",
+    frames: ["/exercises/flexao-inclinada-0.jpg", "/exercises/flexao-inclinada-1.jpg"],
     steps: [
       "Mãos numa superfície firme e alta, corpo reto e inclinado.",
       "Desça o peito dobrando os cotovelos.",
@@ -323,7 +323,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: true,
     isStar: false,
     timeBasedSec: 20,
-    videoUrl: "https://www.youtube.com/results?search_query=parada+de+mao+na+parede+handstand+wall+tutorial",
+    frames: ["/exercises/parada-de-mao-na-parede-0.jpg", "/exercises/parada-de-mao-na-parede-1.jpg"],
     steps: [
       "De frente pra parede, mãos no chão à frente dela.",
       "Suba os pés caminhando pela parede até inclinar (comece baixo).",
@@ -475,7 +475,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    videoUrl: "https://www.youtube.com/results?search_query=gato+camelo+mobilidade+de+coluna",
+    frames: ["/exercises/mobilidade-costas-0.jpg", "/exercises/mobilidade-costas-1.jpg"],
     steps: [
       "Gato-camelo: em 4 apoios, alterne arquear a coluna (gato) e afundar a barriga (camelo), ~10 ciclos.",
       "Deite de lado com os joelhos dobrados; gire o tronco abrindo o braço de cima pro outro lado.",
