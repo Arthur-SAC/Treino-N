@@ -27,6 +27,7 @@ export interface Exercise {
   difficulty: "iniciante" | "intermediario" | "avancado";
   videoUrl?: string;
   gifPath?: string;
+  frames?: string[];         // 2 quadros (início/fim) alternados como animação (domínio público)
   description: string;       // passos juntos
   steps?: string[];          // passos numerados (de "passos")
   commonMistakes: string[];  // de "cuidado"

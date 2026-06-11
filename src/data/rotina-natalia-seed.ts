@@ -65,7 +65,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: true,
-    gifPath: "/exercises/remada-com-1-braco.gif",
+    frames: ["/exercises/remada-com-1-braco-0.jpg", "/exercises/remada-com-1-braco-1.jpg"],
     steps: [
       "Apoie uma mão e o joelho do mesmo lado num banco/sofá; costas retas e paralelas ao chão.",
       "Halter na outra mão, braço esticado pra baixo.",
@@ -86,7 +86,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: true,
-    gifPath: "/exercises/elevacao-lateral.gif",
+    frames: ["/exercises/elevacao-lateral-0.jpg", "/exercises/elevacao-lateral-1.jpg"],
     steps: [
       "Em pé, um halter em cada mão ao lado do corpo, cotovelo levemente dobrado.",
       "Levante os braços pros lados até a altura dos ombros (forma um T).",
@@ -107,7 +107,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/abertura-invertida.gif",
+    frames: ["/exercises/abertura-invertida-0.jpg", "/exercises/abertura-invertida-1.jpg"],
     steps: [
       "Incline o tronco pra frente com as costas retas, braços pendendo com os halteres.",
       "Abra os braços pros lados apertando as costas, cotovelos levemente dobrados.",
@@ -128,7 +128,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/rosca-de-biceps.gif",
+    frames: ["/exercises/rosca-de-biceps-0.jpg", "/exercises/rosca-de-biceps-1.jpg"],
     steps: [
       "Em pé, halteres ao lado do corpo, palmas pra frente.",
       "Dobre os cotovelos trazendo os halteres até os ombros.",
@@ -150,7 +150,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     timeBasedSec: 20,
-    gifPath: "/exercises/prancha.gif",
+    frames: ["/exercises/prancha-0.jpg", "/exercises/prancha-1.jpg"],
     steps: [
       "Apoie antebraços e pontas dos pés no chão.",
       "Deixe o corpo reto da cabeça aos calcanhares.",
@@ -173,7 +173,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/agachamento-com-halter-no-peito.gif",
+    frames: ["/exercises/agachamento-com-halter-no-peito-0.jpg", "/exercises/agachamento-com-halter-no-peito-1.jpg"],
     steps: [
       "Segure um halter na vertical junto ao peito, pés na largura dos ombros.",
       "Empurre o quadril pra trás e desça como se fosse sentar numa cadeira.",
@@ -194,7 +194,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/afundo-parado.gif",
+    frames: ["/exercises/afundo-parado-0.jpg", "/exercises/afundo-parado-1.jpg"],
     steps: [
       "Dê um passo grande à frente, numa posição de tesoura.",
       "Abaixe o joelho de trás em direção ao chão, dobrando os dois joelhos ~90°.",
@@ -215,7 +215,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/levantamento-romeno.gif",
+    frames: ["/exercises/levantamento-romeno-0.jpg", "/exercises/levantamento-romeno-1.jpg"],
     steps: [
       "Em pé, halteres à frente das coxas, joelhos com leve dobra que NÃO muda.",
       "Empurre o quadril pra trás (não agache!) descendo os halteres rente às pernas, costas retas.",
@@ -236,7 +236,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: true,
-    gifPath: "/exercises/elevacao-de-quadril.gif",
+    frames: ["/exercises/elevacao-de-quadril-0.jpg", "/exercises/elevacao-de-quadril-1.jpg"],
     steps: [
       "Deite de costas, joelhos dobrados e pés no chão.",
       "Apoie um halter sobre o quadril.",
@@ -257,7 +257,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/panturrilha-em-pe.gif",
+    frames: ["/exercises/panturrilha-em-pe-0.jpg", "/exercises/panturrilha-em-pe-1.jpg"],
     steps: [
       "Em pé com um halter, ponta dos pés num degrau.",
       "Suba na ponta dos pés o máximo possível.",
@@ -278,7 +278,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/dead-bug.gif",
+    frames: ["/exercises/dead-bug-0.jpg", "/exercises/dead-bug-1.jpg"],
     steps: [
       "Deite de barriga pra cima, braços pro teto e pernas dobradas no ar.",
       "Estique um braço pra trás e a perna oposta pra frente, sem encostar no chão.",
@@ -344,7 +344,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/desenvolvimento-de-ombro.gif",
+    frames: ["/exercises/desenvolvimento-de-ombro-0.jpg", "/exercises/desenvolvimento-de-ombro-1.jpg"],
     steps: [
       "Sentada ou em pé, halteres na altura dos ombros, palmas pra frente.",
       "Empurre pra cima até esticar os braços.",
@@ -387,7 +387,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/triceps-com-halter.gif",
+    frames: ["/exercises/triceps-com-halter-0.jpg", "/exercises/triceps-com-halter-1.jpg"],
     steps: [
       "Segure 1 halter com as duas mãos atrás da cabeça.",
       "Estique os braços pra cima.",
@@ -409,7 +409,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     timeBasedSec: 20,
-    gifPath: "/exercises/prancha-lateral.gif",
+    frames: ["/exercises/prancha-lateral-0.jpg", "/exercises/prancha-lateral-1.jpg"],
     steps: [
       "Deite de lado apoiada no antebraço, pernas esticadas.",
       "Levante o quadril até o corpo ficar reto.",
@@ -433,7 +433,7 @@ export const EXERCISES: Exercise[] = [
     isSkill: false,
     isStar: false,
     timeBasedSec: 30,
-    gifPath: "/exercises/cardio-hiit.gif",
+    videoUrl: "https://www.youtube.com/results?search_query=hiit+pular+corda+iniciante",
     steps: [
       "Aqueça 2 min com corda leve ou marcha no lugar.",
       "Alterne 30s intenso / 30s leve por 10-12 rodadas.",
@@ -454,7 +454,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/mobilidade-ombro.gif",
+    videoUrl: "https://www.youtube.com/results?search_query=mobilidade+de+ombro+com+toalha",
     steps: [
       "Segure uma toalha esticada com as duas mãos, braços à frente.",
       "Passe a toalha por cima da cabeça até atrás das costas, com os braços esticados.",
@@ -475,7 +475,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/mobilidade-costas.gif",
+    videoUrl: "https://www.youtube.com/results?search_query=gato+camelo+mobilidade+de+coluna",
     steps: [
       "Gato-camelo: em 4 apoios, alterne arquear a coluna (gato) e afundar a barriga (camelo), ~10 ciclos.",
       "Deite de lado com os joelhos dobrados; gire o tronco abrindo o braço de cima pro outro lado.",
@@ -496,7 +496,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/mobilidade-quadril.gif",
+    videoUrl: "https://www.youtube.com/results?search_query=mobilidade+de+quadril+90+90+agachamento+profundo",
     steps: [
       "Agachamento fundo: desça o máximo com os calcanhares no chão e segure, abrindo os joelhos com os cotovelos.",
       "Sente em 90/90 (uma perna à frente, outra ao lado, ambas a 90°) e incline o tronco sobre a da frente.",
@@ -517,7 +517,7 @@ export const EXERCISES: Exercise[] = [
     difficulty: "iniciante",
     isSkill: false,
     isStar: false,
-    gifPath: "/exercises/mobilidade-tornozelo.gif",
+    videoUrl: "https://www.youtube.com/results?search_query=mobilidade+de+tornozelo+joelho+na+parede",
     steps: [
       "Em pé de frente pra parede, um pé à frente.",
       "Leve o joelho em direção à parede sem tirar o calcanhar do chão.",

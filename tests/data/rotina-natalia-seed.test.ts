@@ -30,12 +30,21 @@ describe("rotina-natalia seed", () => {
     expect(prancha.timeBasedSec).toBe(20);
   });
 
-  it("skills têm videoUrl e não têm gifPath; comuns têm gifPath", () => {
+  it("skills têm videoUrl; exercícios com carga têm frames (2 quadros)", () => {
     const skill = EXERCISES.find((e) => e.id === "parada-de-mao-na-parede")!;
     expect(skill.isSkill).toBe(true);
     expect(skill.videoUrl).toMatch(/youtube\.com/);
     const comum = EXERCISES.find((e) => e.id === "elevacao-lateral")!;
-    expect(comum.gifPath).toBe("/exercises/elevacao-lateral.gif");
+    expect(comum.frames).toEqual([
+      "/exercises/elevacao-lateral-0.jpg",
+      "/exercises/elevacao-lateral-1.jpg",
+    ]);
+  });
+
+  it("nenhum exercício aponta pra um .gif inexistente (usamos frames ou vídeo)", () => {
+    for (const ex of EXERCISES) {
+      expect(ex.gifPath, ex.id).toBeUndefined();
+    }
   });
 
   it("mobilidade de quinta é dividida em 4 blocos (ombro, costas, quadril, tornozelo)", () => {

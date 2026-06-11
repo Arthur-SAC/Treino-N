@@ -25,7 +25,7 @@ export function ExerciseDetail() {
         {ex.category} · {ex.difficulty}
       </p>
 
-      <ExerciseMediaBlock name={ex.name} gifPath={ex.gifPath} videoUrl={ex.videoUrl} />
+      <ExerciseMediaBlock name={ex.name} gifPath={ex.gifPath} frames={ex.frames} videoUrl={ex.videoUrl} />
 
       <div className="card mb-3">
         <h2 className="text-nude-warm font-medium mb-2">Como fazer</h2>

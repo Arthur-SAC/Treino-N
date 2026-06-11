@@ -49,7 +49,7 @@ export function ExerciseInfoModal({ exercise, onClose }: Props) {
             {exercise.category} · {exercise.difficulty}
           </p>
 
-          <ExerciseMediaBlock name={exercise.name} gifPath={exercise.gifPath} videoUrl={exercise.videoUrl} />
+          <ExerciseMediaBlock name={exercise.name} gifPath={exercise.gifPath} frames={exercise.frames} videoUrl={exercise.videoUrl} />
 
           <section>
             <h3 className="text-nude-warm font-medium mb-1">Como fazer</h3>

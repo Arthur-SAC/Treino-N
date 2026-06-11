@@ -1,7 +1,7 @@
 import { db } from "./db";
 import { EXERCISES, WORKOUT_PLAN } from "../data/rotina-natalia-seed";
 
-const SEED_VERSION = 2;
+const SEED_VERSION = 3;
 
 // Exercícios que existiram em versões anteriores e foram removidos/divididos.
 const OBSOLETE_EXERCISE_IDS = ["mobilidade-geral"];
