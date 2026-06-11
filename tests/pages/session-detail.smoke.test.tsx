@@ -163,5 +163,8 @@ describe("SessionDetail smoke — Força A", () => {
       // exercício sem campo de peso salva weight 0 (não NaN/undefined)
       expect(sessions[0].exercises[0].sets[0].weight).toBe(0);
     });
+
+    // card de comemoração aparece ao finalizar
+    expect(await screen.findByText(/Manda uma foto pro seu amor/i)).toBeInTheDocument();
   });
 });

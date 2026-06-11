@@ -3,6 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { db, type Exercise, type WorkoutSession } from "../../lib/db";
 import { SessionRecorder } from "../../components/SessionRecorder";
+import { CelebrationCard } from "../../components/CelebrationCard";
+import { pickCelebration } from "../../data/celebration-phrases";
 
 export function SessionDetail() {
   const { templateId } = useParams<{ templateId: string }>();
@@ -19,6 +21,7 @@ export function SessionDetail() {
 
   const [recorded, setRecorded] = useState<WorkoutSession["exercises"]>([]);
   const [feedback, setFeedback] = useState<WorkoutSession["difficultySelf"]>("medium");
+  const [celebration, setCelebration] = useState<string | null>(null);
 
   if (!template || !exercises) {
     return <div className="p-4 text-muted text-sm">Carregando…</div>;
@@ -36,7 +39,7 @@ export function SessionDetail() {
       difficultySelf: feedback,
     };
     await db.workoutSessions.add(session as WorkoutSession);
-    navigate("/treino", { replace: true });
+    setCelebration(pickCelebration());
   }
 
   return (
@@ -95,6 +98,13 @@ export function SessionDetail() {
           Finalizar treino ({recorded.length} exercícios)
         </button>
       </div>
+
+      {celebration && (
+        <CelebrationCard
+          phrase={celebration}
+          onClose={() => navigate("/treino", { replace: true })}
+        />
+      )}
     </div>
   );
 }
