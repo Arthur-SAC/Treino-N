@@ -2,21 +2,107 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Fontes sci-fi embutidas (offline) ───────────────────────────── */
+@font-face {
+  font-family: "Rajdhani"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("./fonts/rajdhani-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Rajdhani"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("./fonts/rajdhani-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Rajdhani"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("./fonts/rajdhani-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Orbitron"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("./fonts/orbitron-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Orbitron"; font-style: normal; font-weight: 800; font-display: swap;
+  src: url("./fonts/orbitron-800.woff2") format("woff2");
+}
+
+:root {
+  --glow: 56, 189, 248;     /* ciano do "Sistema" */
+  --monarch: 168, 85, 247;  /* roxo monarca */
+}
+
 @layer base {
   html, body, #root {
     @apply h-full bg-bg-base text-nude-warm;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: "Rajdhani", system-ui, -apple-system, sans-serif;
   }
   body {
     @apply m-0 antialiased;
+    /* Fundo "portal/HUD": brilho ciano no topo, roxo embaixo, grade sutil. */
+    background-color: #060912;
+    background-image:
+      radial-gradient(120% 75% at 50% -12%, rgba(var(--glow), 0.14), transparent 62%),
+      radial-gradient(90% 60% at 50% 114%, rgba(var(--monarch), 0.12), transparent 60%),
+      linear-gradient(rgba(var(--glow), 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--glow), 0.035) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 34px 34px, 34px 34px;
+    background-attachment: fixed;
   }
-  button {
-    -webkit-tap-highlight-color: transparent;
+  h1, h2, h3, h4 {
+    font-weight: 600;
+    letter-spacing: 0.03em;
   }
+  /* Títulos de página (usam font-serif no código) → cara de "Sistema". */
+  .font-serif {
+    font-family: "Rajdhani", system-ui, sans-serif !important;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 14px rgba(var(--glow), 0.35);
+  }
+  button { -webkit-tap-highlight-color: transparent; }
+
+  ::selection { background: rgba(var(--glow), 0.32); color: #eaf6ff; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(var(--glow), 0.32); border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-track { background: transparent; }
 }
 
 @layer components {
+  /* Painel "janela do Sistema": vidro azul-marinho + borda ciano + brilho. */
   .card {
-    @apply bg-bg-raised border border-bg-border rounded-card p-4;
+    @apply rounded-card p-4;
+    position: relative;
+    background: linear-gradient(180deg, rgba(13, 22, 44, 0.92), rgba(7, 12, 26, 0.94));
+    border: 1px solid rgba(var(--glow), 0.22);
+    box-shadow:
+      0 10px 30px -14px rgba(2, 6, 16, 0.9),
+      inset 0 1px 0 rgba(var(--glow), 0.08);
   }
+  /* Linha de luz no topo do painel. */
+  .card::before {
+    content: "";
+    position: absolute; left: 14px; right: 14px; top: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(var(--glow), 0.7), transparent);
+  }
+
+  /* Rótulo de sistema: "[ SISTEMA ]". */
+  .sys-label {
+    font-family: "Orbitron", "Rajdhani", sans-serif;
+    font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: rgb(var(--glow)); text-shadow: 0 0 10px rgba(var(--glow), 0.6);
+  }
+}
+
+@layer utilities {
+  /* Itens "ativos/destaque" (today, dia atual, exercício selecionado) brilham. */
+  .border-nude {
+    border-color: rgba(var(--glow), 0.65) !important;
+    box-shadow: 0 0 20px -4px rgba(var(--glow), 0.5);
+  }
+  /* Botões primários (azul) ganham brilho de energia. */
+  .bg-wine, .bg-wine-light {
+    box-shadow: 0 0 18px -6px rgba(var(--glow), 0.7);
+  }
+  .glow-text { text-shadow: 0 0 12px rgba(var(--glow), 0.6); }
+  .font-display { font-family: "Orbitron", "Rajdhani", sans-serif; }
 }

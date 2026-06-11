@@ -5,27 +5,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Tema roxo + azul. Mantém os nomes de token (wine/nude/muted) usados nas classes.
+        // Tema "Sistema" (Solo Leveling): azul-marinho profundo + ciano neon + roxo monarca.
+        // Mantém os nomes de token (wine/nude/muted) usados nas classes.
         bg: {
-          base: "#1e1b4b",   // índigo bem escuro (fundo)
-          raised: "#2a2566", // card
-          deep: "#161232",   // inputs/botões
-          border: "#3b357a", // borda
+          base: "#060912",   // azul-quase-preto (fundo)
+          raised: "#0b1426", // painel/card
+          deep: "#05080f",   // inputs/botões
+          border: "#1d3a5f", // borda dos painéis
         },
-        wine: {              // acento primário → roxo
-          DEFAULT: "#7c3aed",
-          light: "#a78bfa",
+        wine: {              // acento primário (botões) → azul de energia
+          DEFAULT: "#1d4ed8",
+          light: "#3b82f6",
         },
-        nude: {              // acento secundário/texto → azul
-          DEFAULT: "#60a5fa",
-          light: "#93c5fd",
-          warm: "#e0e7ff",   // texto principal (lavanda clara)
+        nude: {              // acento/realce/texto → ciano do Sistema
+          DEFAULT: "#38bdf8",
+          light: "#7dd3fc",
+          warm: "#dbeafe",   // texto principal (branco-gelo azulado)
         },
-        muted: "#9c9ad6",    // texto secundário
+        muted: "#7387ad",    // texto secundário (cinza-azulado)
+        monarch: {           // roxo monarca (momentos especiais)
+          DEFAULT: "#a855f7",
+          light: "#c084fc",
+        },
       },
       fontFamily: {
-        sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
-        serif: ["Georgia", "serif"],
+        sans: ["Rajdhani", "system-ui", "-apple-system", "sans-serif"],
+        serif: ["Rajdhani", "system-ui", "sans-serif"],
+        display: ["Orbitron", "Rajdhani", "sans-serif"],
       },
       borderRadius: {
         card: "16px",
