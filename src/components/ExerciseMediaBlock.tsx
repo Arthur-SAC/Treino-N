@@ -7,6 +7,11 @@ interface Props {
   videoUrl?: string;
 }
 
+/** Resolve um caminho de asset respeitando o `base` do app (ex.: /Treino-N/). */
+function withBase(p: string): string {
+  return `${import.meta.env.BASE_URL}${p.replace(/^\//, "")}`;
+}
+
 /**
  * Mídia do exercício:
  * - `frames` (2 imagens início/fim, domínio público) → anima alternando os quadros (efeito GIF).
@@ -27,14 +32,14 @@ export function ExerciseMediaBlock({ name, gifPath, frames, videoUrl }: Props) {
     <>
       {hasFrames ? (
         <img
-          src={frames![frame]}
+          src={withBase(frames![frame])}
           alt={`Demonstração: ${name}`}
           className="w-full rounded-card mb-3 bg-bg-deep object-contain"
           onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
         />
       ) : gifPath ? (
         <img
-          src={gifPath}
+          src={withBase(gifPath)}
           alt={`Demonstração: ${name}`}
           className="w-full rounded-card mb-3"
           onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
