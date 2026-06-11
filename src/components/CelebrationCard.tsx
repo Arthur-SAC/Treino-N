@@ -12,7 +12,7 @@ export function CelebrationCard({ phrase, onClose }: Props) {
   async function handlePhoto(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
-    const text = "Terminei meu treino! 💪💜";
+    const text = "Terminei meu treino!";
     try {
       const nav = navigator as Navigator & { canShare?: (d: ShareData) => boolean };
       if (nav.canShare?.({ files: [file] })) {
@@ -31,9 +31,8 @@ export function CelebrationCard({ phrase, onClose }: Props) {
         className="bg-bg-raised border border-wine-light rounded-card w-full max-w-sm p-6 text-center space-y-4"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="text-5xl">🎉</div>
         <h2 className="font-serif text-2xl text-nude-warm">{phrase}</h2>
-        <p className="text-muted text-sm">Manda uma foto pro seu amor? 📸💜</p>
+        <p className="text-muted text-sm">Manda uma foto pro seu amor?</p>
 
         <input
           ref={fileRef}
@@ -50,7 +49,7 @@ export function CelebrationCard({ phrase, onClose }: Props) {
             onClick={() => fileRef.current?.click()}
             className="w-full bg-wine text-nude-warm rounded-md py-3 font-medium"
           >
-            📸 Mandar foto pro amor
+            Mandar foto pro amor
           </button>
           <button
             type="button"
