@@ -1,5 +1,13 @@
 import type { Exercise, WorkoutTemplate } from "../lib/db";
 
+// Aquecimento geral (3-5 min) feito antes de cada treino de força.
+export const WARMUP_STEPS: string[] = [
+  "2-3 min de corda leve, marcha no lugar ou polichinelo.",
+  "Círculos de braço e quadril; gato-camelo; agachamento livre lento.",
+  "Ativação — perna: ponte de glúteo; parte de cima: deitada de bruços, braços formando Y, T e W.",
+  "1 série leve do primeiro exercício.",
+];
+
 // Helper: parse sets from reps string (e.g. "3 × 12" → 3, "2 × 12" → 2)
 function parseSets(reps: string): number {
   const m = reps.match(/^(\d+)\s*[×x]/);

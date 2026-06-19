@@ -5,6 +5,7 @@ import { db, type Exercise, type WorkoutSession } from "../../lib/db";
 import { SessionRecorder } from "../../components/SessionRecorder";
 import { CelebrationCard } from "../../components/CelebrationCard";
 import { pickCelebration } from "../../data/celebration-phrases";
+import { WARMUP_STEPS } from "../../data/rotina-natalia-seed";
 
 export function SessionDetail() {
   const { templateId } = useParams<{ templateId: string }>();
@@ -22,6 +23,7 @@ export function SessionDetail() {
   const [recorded, setRecorded] = useState<WorkoutSession["exercises"]>([]);
   const [feedback, setFeedback] = useState<WorkoutSession["difficultySelf"]>("medium");
   const [celebration, setCelebration] = useState<string | null>(null);
+  const [warmupOpen, setWarmupOpen] = useState(false);
 
   if (!template || !exercises) {
     return <div className="p-4 text-muted text-sm">Carregando…</div>;
@@ -48,6 +50,29 @@ export function SessionDetail() {
         <Link to="/treino/plano" className="text-muted text-sm">&larr; Plano</Link>
         <h1 className="font-serif text-2xl text-nude flex-1">{template.name}</h1>
       </div>
+
+      {template.kind === "forca" && (
+        <div className="card mb-3">
+          <button
+            type="button"
+            onClick={() => setWarmupOpen((o) => !o)}
+            className="w-full flex items-center justify-between text-left"
+          >
+            <span>
+              <span className="sys-label block mb-1">[ Antes de começar ]</span>
+              <span className="text-nude-warm font-medium">Aquecimento · ~3-5 min</span>
+            </span>
+            <span className="text-muted text-lg">{warmupOpen ? "−" : "+"}</span>
+          </button>
+          {warmupOpen && (
+            <ol className="mt-3 space-y-2 list-decimal list-inside text-sm text-nude-warm/90">
+              {WARMUP_STEPS.map((step, i) => (
+                <li key={i}>{step}</li>
+              ))}
+            </ol>
+          )}
+        </div>
+      )}
 
       {template.exercises.map((tplEx, i) => {
         const ex = exMap.get(tplEx.exerciseId);
