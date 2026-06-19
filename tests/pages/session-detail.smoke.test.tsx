@@ -41,6 +41,7 @@ const FORCA_A_TEMPLATE: WorkoutTemplate = {
   name: "Força A · Puxar & Ombro",
   dayOfWeek: 1,
   kind: "forca",
+  program: "x",
   durationMin: 45,
   exercises: [
     { exerciseId: "pendura-na-barra", sets: 3, repsTarget: "até 20s", restSec: 75 },

@@ -1,17 +1,51 @@
 // tests/data/rotina-natalia-seed.test.ts
 import { describe, it, expect } from "vitest";
-import { EXERCISES, WORKOUT_PLAN } from "../../src/data/rotina-natalia-seed";
+import { EXERCISES, WORKOUT_PLAN, WARMUP_BLOCKS } from "../../src/data/rotina-natalia-seed";
 
 describe("rotina-natalia seed", () => {
-  it("tem os 6 templates da semana nos dias certos", () => {
-    const byDay = Object.fromEntries(WORKOUT_PLAN.map((t) => [t.dayOfWeek, t.id]));
+  it("tem os 6 templates do formato X nos dias certos", () => {
+    const x = WORKOUT_PLAN.filter((t) => t.program === "x");
+    const byDay = Object.fromEntries(x.map((t) => [t.dayOfWeek, t.id]));
     expect(byDay[1]).toBe("forca-a");
     expect(byDay[2]).toBe("cardio-ter");
     expect(byDay[3]).toBe("forca-b");
     expect(byDay[4]).toBe("mobilidade-qui");
     expect(byDay[5]).toBe("forca-c");
     expect(byDay[6]).toBe("cardio-sab");
-    expect(WORKOUT_PLAN.find((t) => t.dayOfWeek === 0)).toBeUndefined(); // domingo folga
+    expect(x.find((t) => t.dayOfWeek === 0)).toBeUndefined(); // domingo folga
+  });
+
+  it("tem o programa triângulo invertido cobrindo os mesmos dias", () => {
+    const tri = WORKOUT_PLAN.filter((t) => t.program === "tri");
+    const byDay = Object.fromEntries(tri.map((t) => [t.dayOfWeek, t.id]));
+    expect(byDay[1]).toBe("tri-a");
+    expect(byDay[3]).toBe("tri-b");
+    expect(byDay[5]).toBe("tri-c");
+    expect(tri.filter((t) => t.kind === "forca")).toHaveLength(3);
+    expect(tri.find((t) => t.dayOfWeek === 0)).toBeUndefined(); // domingo folga
+  });
+
+  it("todo template tem program definido e focus preenchido", () => {
+    for (const t of WORKOUT_PLAN) {
+      expect(["x", "tri"], t.id).toContain(t.program);
+      expect(t.focus, t.id).toBeTruthy();
+    }
+  });
+
+  it("todo exercício tem dica de resultado (proTips) e indicador de erro (commonMistakes)", () => {
+    for (const ex of EXERCISES) {
+      expect(ex.commonMistakes.length, ex.id).toBeGreaterThan(0);
+      expect(ex.proTips?.length ?? 0, ex.id).toBeGreaterThan(0);
+    }
+  });
+
+  it("todo bloco de aquecimento tem passos, dica de resultado e sinal de erro", () => {
+    expect(WARMUP_BLOCKS.length).toBeGreaterThan(0);
+    for (const b of WARMUP_BLOCKS) {
+      expect(b.passos.length, b.titulo).toBeGreaterThan(0);
+      expect(b.resultado, b.titulo).toBeTruthy();
+      expect(b.erro, b.titulo).toBeTruthy();
+    }
   });
 
   it("todo exerciseId referenciado existe em EXERCISES", () => {

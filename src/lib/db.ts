@@ -45,6 +45,8 @@ export interface WorkoutTemplate {
   name: string;
   dayOfWeek: number;         // 0=Dom ... 6=Sáb
   kind: "forca" | "cardio" | "mobilidade";
+  program: "x" | "tri";      // "x" = formato X (padrão) · "tri" = triângulo invertido (V-taper)
+  focus?: string;            // objetivo do dia, mostrado no topo da sessão
   exercises: Array<{
     exerciseId: string;
     sets: number;

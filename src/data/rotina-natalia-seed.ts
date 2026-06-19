@@ -1,11 +1,58 @@
 import type { Exercise, WorkoutTemplate } from "../lib/db";
 
-// Aquecimento geral (3-5 min) feito antes de cada treino de força.
-export const WARMUP_STEPS: string[] = [
-  "2-3 min de corda leve, marcha no lugar ou polichinelo.",
-  "Círculos de braço e quadril; gato-camelo; agachamento livre lento.",
-  "Ativação — perna: ponte de glúteo; parte de cima: deitada de bruços, braços formando Y, T e W.",
-  "1 série leve do primeiro exercício.",
+// Aquecimento geral (~5 min) feito antes de cada treino de força.
+export interface WarmupBlock {
+  titulo: string;
+  duracao?: string;
+  passos: string[];
+  resultado: string; // como tirar mais proveito
+  erro: string;      // sinal de que está fazendo errado
+}
+
+export const WARMUP_BLOCKS: WarmupBlock[] = [
+  {
+    titulo: "1. Elevar a temperatura",
+    duracao: "2-3 min",
+    passos: [
+      "Corda leve, marcha no lugar ou polichinelo — escolha um.",
+      "Ritmo tranquilo, só até sentir o corpo esquentar e a respiração subir um pouco.",
+      "Não é pra cansar: a ideia é 'ligar o motor', não treinar ainda.",
+    ],
+    resultado: "Começar o treino com o corpo aquecido e solto rende mais força e protege as articulações.",
+    erro: "Se chegar ofegante ou cansada no 1º exercício, foi rápido/intenso demais — isto é só pra aquecer.",
+  },
+  {
+    titulo: "2. Mobilidade dinâmica",
+    duracao: "2 min",
+    passos: [
+      "Círculos de braço: 10 pra frente e 10 pra trás, braços esticados.",
+      "Círculos de quadril: mãos na cintura, 10 círculos pra cada lado.",
+      "Gato-camelo: de quatro, arredonda e arqueia as costas devagar, 8-10 vezes.",
+      "Agachamento livre lento: 8 agachamentos sem peso, descendo controlado.",
+    ],
+    resultado: "Faça no maior arco que conseguir sem dor — mais amplitude aqui = movimento mais fundo e seguro no treino.",
+    erro: "Movimento curto e travado, ou estalos com dor, é sinal de pressa: desacelere e aumente o arco aos poucos.",
+  },
+  {
+    titulo: "3. Ativação",
+    duracao: "1-2 min",
+    passos: [
+      "Ponte de glúteo: deitada de costas, joelhos dobrados, suba o quadril apertando o glúteo — 12 repetições.",
+      "Y-T-W: deitada de bruços, faça os braços desenharem a letra Y, depois T, depois W, apertando as costas — 8 de cada.",
+      "Esses dois 'acordam' glúteo e costas pros exercícios principais.",
+    ],
+    resultado: "Sentir glúteo e costas 'ligados' (queimando de leve) faz eles puxarem o esforço no treino, e não a lombar.",
+    erro: "Se só sentir a lombar ou o pescoço trabalhando, está compensando — reposicione e foque no músculo-alvo.",
+  },
+  {
+    titulo: "4. Série de aproximação",
+    passos: [
+      "Faça 1 série leve (uns 50% do peso) do primeiro exercício do treino.",
+      "Serve pra pegar o jeito do movimento antes de ir no peso de verdade.",
+    ],
+    resultado: "Ensaiar o movimento leve fixa a técnica e deixa a 1ª série pesada mais forte e segura.",
+    erro: "Se a série leve já parecer difícil, é sinal pra baixar o peso de trabalho do dia.",
+  },
 ];
 
 // Helper: parse sets from reps string (e.g. "3 × 12" → 3, "2 × 12" → 2)
@@ -557,6 +604,49 @@ export const EXERCISES: Exercise[] = [
     easierVariation: "Pé mais perto da parede.",
     harderVariation: "Afaste o pé da parede a cada semana.",
   },
+  // ── Exercícios extras do programa Triângulo Invertido ──────────────────────
+  {
+    id: "crucifixo-com-halteres",
+    name: "Crucifixo com halteres",
+    category: "Peito",
+    equipment: ["halteres", "banco"],
+    difficulty: "iniciante",
+    isSkill: false,
+    isStar: false,
+    videoUrl: "https://www.youtube.com/results?search_query=crucifixo+com+halteres",
+    steps: [
+      "Deitada de costas num banco (ou no chão), um halter em cada mão acima do peito, palmas viradas uma pra outra.",
+      "Abra os braços pros lados em arco, cotovelos levemente dobrados, até sentir o peito alongar.",
+      "Volte juntando os halteres acima do peito, como se abraçasse um barril.",
+    ],
+    description:
+      "Deitada, halteres acima do peito com palmas frente a frente. Abra os braços em arco até alongar o peito e volte juntando acima do peito.",
+    proTips: ["Movimento amplo e controlado — é o exercício que dá espessura ao peito."],
+    commonMistakes: ["Dobrar muito o cotovelo (vira supino) ou descer peso demais e forçar o ombro."],
+    easierVariation: "Pouco peso e amplitude menor no começo.",
+    harderVariation: "Pause 1s embaixo, sentindo o alongamento, antes de subir.",
+  },
+  {
+    id: "encolhimento-de-ombros",
+    name: "Encolhimento de ombros",
+    category: "Trapézio",
+    equipment: ["halteres"],
+    difficulty: "iniciante",
+    isSkill: false,
+    isStar: false,
+    videoUrl: "https://www.youtube.com/results?search_query=encolhimento+de+ombros+halteres",
+    steps: [
+      "Em pé, um halter em cada mão ao lado do corpo, braços esticados.",
+      "Eleve os ombros em direção às orelhas o máximo que conseguir, sem dobrar os cotovelos.",
+      "Segure 1s no topo e desça devagar.",
+    ],
+    description:
+      "Em pé, halteres ao lado do corpo. Eleve os ombros em direção às orelhas, segure 1s e desça devagar.",
+    proTips: ["É só os ombros que sobem — pescoço relaxado, sem girar os ombros."],
+    commonMistakes: ["Girar/rolar os ombros (não ajuda e pode incomodar o pescoço)."],
+    easierVariation: "Menos peso, foco em segurar 1s no topo.",
+    harderVariation: "Aumente o peso ou segure 2s no topo.",
+  },
 ];
 
 export const WORKOUT_PLAN: WorkoutTemplate[] = [
@@ -565,6 +655,8 @@ export const WORKOUT_PLAN: WorkoutTemplate[] = [
     name: "Força A · Puxar & Ombro",
     dayOfWeek: 1,
     kind: "forca",
+    program: "x",
+    focus: "Puxar e ombro: costas e parte de trás do ombro pra postura, mais a lateral do ombro pra largura. Costas fortes + ombros abertos = o topo do X.",
     durationMin: 45,
     exercises: [
       { exerciseId: "pendura-na-barra", sets: parseSets("3 × até 20s"), repsTarget: parseRepsTarget("3 × até 20s"), restSec: 75 },
@@ -581,6 +673,8 @@ export const WORKOUT_PLAN: WorkoutTemplate[] = [
     name: "Cardio (HIIT na corda)",
     dayOfWeek: 2,
     kind: "cardio",
+    program: "x",
+    focus: "Cardio intervalado: queima de gordura e condicionamento sem perder o músculo conquistado nos treinos de força.",
     durationMin: 25,
     exercises: [
       { exerciseId: "cardio-hiit", sets: 1, repsTarget: "2 min aquecer → 30s pula / 30s alivia × 10-12 → 2 min soltar", restSec: 0 },
@@ -591,6 +685,8 @@ export const WORKOUT_PLAN: WorkoutTemplate[] = [
     name: "Força B · Perna & Glúteo",
     dayOfWeek: 3,
     kind: "forca",
+    program: "x",
+    focus: "Perna e glúteo: a base firme do X. Glúteo e posterior dão forma e força; o core fecha a cintura.",
     durationMin: 45,
     exercises: [
       { exerciseId: "agachamento-com-halter-no-peito", sets: parseSets("3 × 12"), repsTarget: parseRepsTarget("3 × 12"), restSec: 75 },
@@ -606,6 +702,8 @@ export const WORKOUT_PLAN: WorkoutTemplate[] = [
     name: "Mobilidade",
     dayOfWeek: 4,
     kind: "mobilidade",
+    program: "x",
+    focus: "Mobilidade: soltar ombro, costas, quadril e tornozelo. Recupera entre os treinos e dá a 'liberdade de movimento' do objetivo.",
     durationMin: 20,
     exercises: [
       { exerciseId: "mobilidade-ombro", sets: 1, repsTarget: "2-3 min", restSec: 0 },
@@ -619,6 +717,8 @@ export const WORKOUT_PLAN: WorkoutTemplate[] = [
     name: "Força C · Empurrar & Parada de Mão",
     dayOfWeek: 5,
     kind: "forca",
+    program: "x",
+    focus: "Empurrar e equilíbrio de mão: peito, frente do ombro e tríceps, mais skills de força (parada de mão e flexão pike) pro controle do próprio corpo.",
     durationMin: 45,
     exercises: [
       { exerciseId: "flexao-inclinada", sets: parseSets("3 × 8-12"), repsTarget: parseRepsTarget("3 × 8-12"), restSec: 75 },
@@ -635,6 +735,103 @@ export const WORKOUT_PLAN: WorkoutTemplate[] = [
     name: "Cardio leve (corda + caminhada)",
     dayOfWeek: 6,
     kind: "cardio",
+    program: "x",
+    focus: "Cardio leve e longo: gasto calórico tranquilo e recuperação ativa, sem estressar as pernas pro próximo ciclo.",
+    durationMin: 30,
+    exercises: [
+      { exerciseId: "cardio-hiit", sets: 1, repsTarget: "corda leve + caminhada longa", restSec: 0 },
+    ],
+  },
+
+  // ── Programa Triângulo Invertido (V-taper) ─────────────────────────────────
+  // Concentra a parte de cima (ombro/peito/costas) em 2 dias e enxuga o volume
+  // de quadril/glúteo: shape masculino, ombros largos afunilando pra cintura.
+  {
+    id: "tri-a",
+    name: "Tri A · Empurrar — Peito & Ombro",
+    dayOfWeek: 1,
+    kind: "forca",
+    program: "tri",
+    focus: "A parte de cima do V. Peito e ombro (principalmente a lateral) constroem a largura e a espessura do tronco — é o que faz o 'topo' do triângulo.",
+    durationMin: 45,
+    exercises: [
+      { exerciseId: "flexao-inclinada", sets: parseSets("3 × 8-12"), repsTarget: parseRepsTarget("3 × 8-12"), restSec: 75 },
+      { exerciseId: "desenvolvimento-de-ombro", sets: parseSets("3 × 10-12"), repsTarget: parseRepsTarget("3 × 10-12"), restSec: 75 },
+      { exerciseId: "elevacao-lateral", sets: parseSets("4 × 12-15"), repsTarget: parseRepsTarget("4 × 12-15"), restSec: 60 },
+      { exerciseId: "crucifixo-com-halteres", sets: parseSets("3 × 12"), repsTarget: parseRepsTarget("3 × 12"), restSec: 75 },
+      { exerciseId: "flexao-pike", sets: parseSets("3 × 6-10"), repsTarget: parseRepsTarget("3 × 6-10"), restSec: 75 },
+      { exerciseId: "abertura-invertida", sets: parseSets("3 × 12-15"), repsTarget: parseRepsTarget("3 × 12-15"), restSec: 60 },
+      { exerciseId: "triceps-com-halter", sets: parseSets("3 × 12"), repsTarget: parseRepsTarget("3 × 12"), restSec: 60 },
+    ],
+  },
+  {
+    id: "tri-cardio-ter",
+    name: "Cardio (HIIT na corda)",
+    dayOfWeek: 2,
+    kind: "cardio",
+    program: "tri",
+    focus: "Cardio intervalado: queima de gordura pra revelar o shape, sem comer o músculo dos dias de força.",
+    durationMin: 25,
+    exercises: [
+      { exerciseId: "cardio-hiit", sets: 1, repsTarget: "2 min aquecer → 30s pula / 30s alivia × 10-12 → 2 min soltar", restSec: 0 },
+    ],
+  },
+  {
+    id: "tri-b",
+    name: "Tri B · Puxar — Costas & Braço",
+    dayOfWeek: 3,
+    kind: "forca",
+    program: "tri",
+    focus: "A base larga das costas. Dorsal puxa a largura, trapézio dá volume ao alto das costas e o bíceps completa o braço — as costas em V.",
+    durationMin: 45,
+    exercises: [
+      { exerciseId: "pendura-na-barra", sets: parseSets("3 × até 20s"), repsTarget: parseRepsTarget("3 × até 20s"), restSec: 75 },
+      { exerciseId: "puxada-de-escapula", sets: parseSets("3 × 8"), repsTarget: parseRepsTarget("3 × 8"), restSec: 75 },
+      { exerciseId: "remada-com-1-braco", sets: parseSets("4 × 10 / lado"), repsTarget: parseRepsTarget("4 × 10 / lado"), restSec: 75 },
+      { exerciseId: "encolhimento-de-ombros", sets: parseSets("3 × 12-15"), repsTarget: parseRepsTarget("3 × 12-15"), restSec: 60 },
+      { exerciseId: "rosca-de-biceps", sets: parseSets("3 × 12"), repsTarget: parseRepsTarget("3 × 12"), restSec: 60 },
+      { exerciseId: "prancha", sets: parseSets("3 × 20-40s"), repsTarget: parseRepsTarget("3 × 20-40s"), restSec: 60 },
+    ],
+  },
+  {
+    id: "tri-mobilidade-qui",
+    name: "Mobilidade",
+    dayOfWeek: 4,
+    kind: "mobilidade",
+    program: "tri",
+    focus: "Mobilidade: soltar ombro, costas, quadril e tornozelo pra treinar pesado e sem dor nos dias de empurrar e puxar.",
+    durationMin: 20,
+    exercises: [
+      { exerciseId: "mobilidade-ombro", sets: 1, repsTarget: "2-3 min", restSec: 0 },
+      { exerciseId: "mobilidade-costas", sets: 1, repsTarget: "3-4 min", restSec: 0 },
+      { exerciseId: "mobilidade-quadril", sets: 1, repsTarget: "5-6 min", restSec: 0 },
+      { exerciseId: "mobilidade-tornozelo", sets: 1, repsTarget: "2-3 min", restSec: 0 },
+    ],
+  },
+  {
+    id: "tri-c",
+    name: "Tri C · Base & Cintura",
+    dayOfWeek: 5,
+    kind: "forca",
+    program: "tri",
+    focus: "Pernas só pra proporção (força e firmeza, sem inflar o quadril) e core pra manter a cintura fina — é o que afunila o V por baixo.",
+    durationMin: 40,
+    exercises: [
+      { exerciseId: "agachamento-com-halter-no-peito", sets: parseSets("3 × 12"), repsTarget: parseRepsTarget("3 × 12"), restSec: 75 },
+      { exerciseId: "afundo-parado", sets: parseSets("2 × 10 / perna"), repsTarget: parseRepsTarget("2 × 10 / perna"), restSec: 75 },
+      { exerciseId: "levantamento-romeno", sets: parseSets("3 × 12"), repsTarget: parseRepsTarget("3 × 12"), restSec: 75 },
+      { exerciseId: "panturrilha-em-pe", sets: parseSets("3 × 15-20"), repsTarget: parseRepsTarget("3 × 15-20"), restSec: 60 },
+      { exerciseId: "prancha-lateral", sets: parseSets("3 × 20s / lado"), repsTarget: parseRepsTarget("3 × 20s / lado"), restSec: 60 },
+      { exerciseId: "dead-bug", sets: parseSets("3 × 10 / lado"), repsTarget: parseRepsTarget("3 × 10 / lado"), restSec: 60 },
+    ],
+  },
+  {
+    id: "tri-cardio-sab",
+    name: "Cardio leve (corda + caminhada)",
+    dayOfWeek: 6,
+    kind: "cardio",
+    program: "tri",
+    focus: "Cardio leve e longo: gasto calórico tranquilo e recuperação ativa pro próximo ciclo.",
     durationMin: 30,
     exercises: [
       { exerciseId: "cardio-hiit", sets: 1, repsTarget: "corda leve + caminhada longa", restSec: 0 },

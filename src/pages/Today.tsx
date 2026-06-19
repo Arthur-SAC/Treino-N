@@ -1,14 +1,22 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { Link } from "react-router-dom";
+import type { CSSProperties } from "react";
 import { db } from "../lib/db";
 import { describeDay } from "../lib/today-workout";
 import { TodayCard } from "../components/TodayCard";
 
+// Vermelho/carmesim do programa Triângulo Invertido (sobrescreve o --glow ciano).
+const TRI_GLOW = "239, 68, 68";
+const triStyle = { "--glow": TRI_GLOW } as CSSProperties;
+
 export function Today() {
-  const day = describeDay(new Date().getDay());
-  const template = useLiveQuery(
-    () => (day.templateId ? db.workoutTemplates.get(day.templateId) : undefined),
-    [day.templateId],
+  const dow = new Date().getDay();
+  const day = describeDay(dow);
+
+  // Nos dias de força existem dois treinos (formato X e triângulo invertido).
+  const forcaTemplates = useLiveQuery(
+    () => db.workoutTemplates.where("dayOfWeek").equals(dow).toArray(),
+    [dow],
   );
 
   return (
@@ -16,13 +24,27 @@ export function Today() {
       <h1 className="text-2xl font-serif">Hoje</h1>
       <TodayCard title={day.label} variant="highlight" />
 
-      {day.kind === "forca" && template && (
-        <TodayCard
-          title="Começar treino"
-          subtitle={`${template.exercises.length} exercícios · ~${template.durationMin} min`}
-          to={`/treino/sessao/${template.id}`}
-          rightSlot={<span className="text-nude">▶</span>}
-        />
+      {day.kind === "forca" && forcaTemplates && (
+        <>
+          <p className="text-muted text-sm">Escolha o treino de hoje:</p>
+          {forcaTemplates
+            .filter((t) => t.kind === "forca")
+            .slice()
+            .sort((a, b) => (a.program === "tri" ? 1 : 0) - (b.program === "tri" ? 1 : 0)) // formato X primeiro
+            .map((t) => {
+              const isTri = t.program === "tri";
+              return (
+                <div key={t.id} style={isTri ? triStyle : undefined}>
+                  <TodayCard
+                    title={t.name}
+                    subtitle={`${isTri ? "Triângulo invertido" : "Formato X"} · ${t.exercises.length} exercícios · ~${t.durationMin} min`}
+                    to={`/treino/sessao/${t.id}`}
+                    rightSlot={<span className="text-nude">▶</span>}
+                  />
+                </div>
+              );
+            })}
+        </>
       )}
       {day.kind === "cardio" && day.templateId && (
         <TodayCard title="Cardio do dia" subtitle="2 min aquecer → 30s pula / 30s alivia × 10-12 → 2 min soltar" to={`/treino/sessao/${day.templateId}`} />
